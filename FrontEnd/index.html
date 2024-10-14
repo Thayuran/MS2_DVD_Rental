@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVD Rent Master</title>
+    <!-- custom css link  -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- <link rel="stylesheet" href="./media.css"> -->
+  
+    <link rel="shortcut icon" href="images\favicon.ico">
+</head>
+
+<body>
+    <!-- navbar  -->
+    <!-- <header> -->
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <img src="./images/logo1.png" alt="brand">
+                </div>
+
+                <ul class="nav-list ">
+                    <li><a href="index.html" class="list-item">Home</a></li>
+                    <li><a href="movielist.html" id="movielist" class="list-item">Movie Lists</a></li>
+                    <!-- <li><button id="loginButton" class="login-btn">Login</button></li>  -->
+                </ul>
+              <div id="profileSection" style="display: none;">
+                <span id="profileIcon"></span>
+                <span id="currentUserName"></span>
+                <div id="profileDropdown" style="display: none;">
+                    <a href="dashboard.html">Dashboard</a>
+                    <button id="logoutButton">Logout</button>
+                </div>
+              </div>
+            </div>
+        </nav>
+        <div class="background-image"></div>
+    <!-- </header> -->
+
+    <section class="header">
+        <div class="container">
+            <div class="header-info">
+                <h1 class="header-headline">your perfect movie waiting for you </h1>
+                <p class="header-subtitle">
+                    we help you get your favourite movie with us.
+                   
+                </p>
+
+                <a href="movielist.html" class="cta">Explore Now</a>
+            </div>
+        </div>
+    </section>
+    <!-- header  -->
+     <!-- <div class="blur-bg-overlay"></div> -->
+
+<!-- -----------------------------login modal------------------------------------------------ -->
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+    <div class="wrapper">
+        <button class="close-button" aria-label="Close alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+        </button>
+      <header>Login Form</header>
+    
+      <form id="loginForm">
+        <div class="field name">
+          <div class="input-area">
+            <label for="usernameLogin">Username:</label>
+            <input type="text" id="usernameLogin" placeholder="User Name">
+          </div>
+          <div class="error error-txt"></div>
+        </div>
+
+        <div class="field password">
+          <div class="input-area">
+            <label for="passwordLogin">Password:</label>
+            <input type="password" id="passwordLogin" placeholder="Password">
+          </div>
+          <div class="error error-txt"></div>
+        </div>
+        <button id="login" type="button">Login</button>
+        <div class="pass-txt" id="fotgotpwlink"><a href="#">Forgot password?</a></div>
+      </form>
+      <div class="signup-txt">Not yet member?</div>
+        <button id="signup-btn">Signup now</button> 
+    </div>
+    </div>
+</div>
+
+<!------------------------------- signup -------------------------------------------------->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+        <div class="wrapper">
+            <button class="close-button" aria-label="Close alert" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+            </button>
+          <header>Signup Form</header>
+
+          <form id="signupForm">
+            <div class="field id">
+                <div class="input-area">
+                  <input type="hidden" id="customer-id">
+                </div>
+              </div>
+
+            <div class="field name">
+                <div class="input-area">
+                    <label for="usernameSignup">Name:</label>
+                  <input type="text" id="usernameSignup" placeholder="Customer Name" required>
+                </div>
+                <div class="error error-txt"></div>
+              </div>
+
+              <div class="field phone">
+                  <div class="input-area">
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" id="phone" placeholder="Phone Number" required>
+                  </div>
+                  <div class="error error-txt"></div>
+                </div>
+  
+              <div class="field address">
+                  <div class="input-area">
+                    <label for="address">Customer Address:</label>
+                    <input type="text" id="address" placeholder="Customer Address">
+                  </div>
+                  <div class="error error-txt"></div>
+              </div>
+          
+            <div class="field password">
+              <div class="input-area">
+                <label for="passwordSignup">Password:</label>
+                <input type="password" id="passwordSignup" placeholder="Password" required>
+              </div>
+              <div class="error error-txt"></div>
+            </div>
+
+            <div class="field confirmpassword">
+                <div class="input-area">
+                    <label for="confirmpassword">Confirmed Password:</label>
+                  <input type="password" id="confirmpassword"  placeholder="Confimed Password" required>
+                </div>
+                <div class="error error-txt"></div>
+              </div>
+              <button id="signup" type="button">Signup Now</button>
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- rent modal -->
+<div id="rentModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Rent DVD</h2>
+        <form id="rentForm">
+            <label for="dvdTitle">DVD Title:</label>
+            <input type="text" id="dvdTitle" name="dvdTitle" readonly>
+
+            <label for="customerName">Customer Name:</label>
+            <input type="text" id="customerName" name="customerName" required>
+
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" readonly>
+
+            <p>Initial Payment: Rs.200</p>
+            <p>Note: This amount will be credited to your account.</p>
+
+            <button type="submit" class="submit-btn">Request Admin</button>
+        </form>
+    </div>
+</div>
+<!--  -->
+
+<!--------------------- Forgot Password --------------------------------------------->
+<div class="modal" id="forgotModal">
+    <div class="modal-content">
+    <div class="wrapper">
+        <button class="close-button" aria-label="Close alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+        </button>
+      <header>Forgot Password</header>
+    
+      <form id="forgotForm">
+        <div class="field name">
+          <div class="input-area">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="User Name">
+          </div>
+          <div class="error error-txt"></div>
+        </div>
+
+        <div class="field password">
+          <div class="input-area">
+            <label for="forgotpassword"> Create New Password:</label>
+            <input type="password" id="forgotpassword" placeholder="Forgot Password">
+          </div>
+          <div class="error error-txt"></div>
+        </div>
+
+        <div class="field password2">
+            <div class="input-area">
+              <label for="forgotcfpassword"> Confirmed New Password:</label>
+              <input type="password" id="forgotcfpassword" placeholder="Confimed Password">
+            </div>
+            <div class="error error-txt"></div>
+        </div>
+        <button id="fgtpwd" type="button">Forgot Password</button>
+      </form>
+    </div>
+    </div>
+</div>
+
+
+    <footer>
+      <small>
+        Copyright © 2024 DVD Rent Master. All Rights Reserved.
+      </small>
+    </footer>
+    
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="CusDashBoardstyle.css">
+    <!-- <link rel="stylesheet" href="./css/dvdstyle.css"> -->
+    <title>Customer Dashboard</title>
+
+    <style>
+        table {
+                 width: 100%;
+                 border-collapse: collapse;
+                 margin-top: 20px;
+                 background-color: #fff;
+                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                 border-radius: 8px;
+                 overflow: hidden;
+             }
+     
+             table th,
+             table td {
+                 padding: 12px;
+                 text-align: left;
+             }
+     
+             table th {
+                 background-color: #007bff;
+                 color: white;
+                 font-weight: bold;
+             }
+     
+             table tr:nth-child(even) {
+                 background-color: #f2f2f2;
+             }
+     
+             table img {
+                 width: 100px;
+                 height: auto;
+                 border-radius: 8px;
+             }
+     </style>
+</head>
+
+<body>
+    
+    <nav>
+        <div class="logo">
+            <div class="logo-image">
+                <img src="/images/logo.png" alt="logo">
+            </div>
+        </div>
+        <div class="menu-items">
+            <ul class="navLinks">
+                <li class="navList active">
+                    <a href="#">
+                        <ion-icon name="disc-outline"></ion-icon>
+                        <span class="links">Rent Request</span>
+                    </a>
+                </li>
+
+                <li class="navList">
+                    <a href="#">
+                        <ion-icon name="cart-outline"></ion-icon>
+                        <span class="links">Rental</span>
+                    </a>
+                </li>
+
+                <li class="navList">
+                    <a href="#">
+                        <ion-icon name="person-circle-outline"></ion-icon>
+                        <span class="links">Profile</span>
+                    </a>
+                </li>
+
+            </ul>
+            <ul class="bottom-link">
+                <li>
+                    <a href="../index.html" onclick="logout()">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                        <span class="links">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- alert -->
+    <div id="customAlert">
+        <span id="alertMessage"></span>
+        <button onclick="hideAlert()">OK</button>
+    </div>
+
+    <div id="content">
+    <section class="dashboard">
+        <div class="container">           
+<!---------------------- Recent Activities --------------------------------------->
+            <div class="data-table">
+                <div class="title">
+                    <ion-icon name="time-outline"></ion-icon>
+                    <span class="text">Rent Activities</span>
+                </div>
+
+<!--------------------------------- notification ------------------------------------------------->
+<!-- <div id="notificationModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Rent Requests</h2> -->
+    <div>
+        <table id="uerRequestTable">
+            <thead>
+                <tr>
+                    <th>Request ID</th>
+                    <th>User Name</th>
+                    <th>DVD Name</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="userRequestsTableBody">
+                <!-- Requests will be populated here -->
+            </tbody>
+        </table>
+    </div>
+<!--</div> -->
+      
+            </div>
+    <!-- </div>
+    </div>    -->
+    <!-- </div>-->
+
+<!----------------------------- Rentals ---------------------------------------------------->
+
+            <div style="display:none" class="data-table">
+                <div class="title">
+                    <ion-icon name="people"></ion-icon>
+                    <span class="text">Rental History</span>
+                </div>
+                <div>
+                    <!-- Enter any table or section here -->
+                    <table id="UserRentTable">
+                        <thead>
+                            <tr>
+                                <th>Rent ID</th>
+                                <th>Customer ID</th>
+                                <th>DVD Name</th>
+                                <th>Rent Date</th>
+                                <th>Due Date</th>
+                                <th>Return Date</th>
+                                <th>Payment</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userRentTableBody">
+                        </tbody>
+                    </table>
+                </div>               
+            </div>
+
+<!----------------------------- Payment section ------------------------------------------------>
+
+            <!-- <div style="display:none" class="data-table">
+                <div class="title">
+                    <ion-icon name="pricetag"></ion-icon>
+                    <span class="text">Rental</span>
+                </div>
+
+                <div>
+                  
+                    <table id="dvdTable">
+                        <thead>
+                            <tr>
+                              
+                                <th>RentID</th>
+                                <th>MovieName</th>
+                                <th>Customer Name</th>
+                                <th>Rent Date</th>
+                                <th>Due Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                         
+                        </tbody>
+                    </table>
+                </div>
+            </div> -->
+
+<!-------------------------------------------Profile ---------------------------------------- -->
+
+<div style="display:none" class="data-table">
+    <div class="title">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <span class="text">Profile</span>
+    </div>
+    <div class="container">
+        <h2>Edit Profile</h2>
+        <form id="editProfileForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="updatePassword">Update Password</label>
+                <input type="text" id="updatePassword" name="updatePassword" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+
+    </div>
+</div>
+<!----------------------------- Reports --------------------------------------------------------->
+
+            <div style="display:none" class="data-table">
+                <div class="title">
+                    <ion-icon name="document"></ion-icon>
+                    <span class="text">Reports</span>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 col-4 text-right m-b-20">
+                        <button class="report-btn active"><ion-icon name="storefront-outline"></ion-icon> Inventory Report</button>
+                    </div>
+                    <div class="col-sm-8 col-4 text-right m-b-20">
+                        <button class="report-btn"><ion-icon name="basket-outline"></ion-icon> Rental Report</button>
+                    </div>
+                    <div class="col-sm-8 col-9 text-right m-b-20">
+                        <button class="report-btn"><ion-icon name="man-outline"></ion-icon> Customer Report</button>
+                    </div>
+                </div> 
+
+                <div>
+                    <!--table -->
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    </div>
+  
+<!--icons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<!-- customize javascript -->
+    <script src="customerDashboard.js"></script>
+
+</body>
+</html>

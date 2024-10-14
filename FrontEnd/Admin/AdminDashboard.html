@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="adminstyle.css">
+    <title>Admin Dashboard</title>
+
+    <style>
+        table {
+                 width: 100%;
+                 border-collapse: collapse;
+                 margin-top: 20px;
+                 background-color: #fff;
+                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                 border-radius: 8px;
+                 overflow: hidden;
+             }
+     
+             table th,
+             table td {
+                 padding: 12px;
+                 text-align: left;
+             }
+     
+             table th {
+                 background-color: #007bff;
+                 color: white;
+                 font-weight: bold;
+             }
+     
+             table tr:nth-child(even) {
+                 background-color: #f2f2f2;
+             }
+     
+             table img {
+                 width: 100px;
+                 height: auto;
+                 border-radius: 8px;
+             }
+     </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <div class="logo-image">
+                <img src="/images/logo.png" alt="logo">
+            </div>
+        </div>
+
+        <div class="menu-items">
+            
+            <ul class="navLinks">
+                <li class="navList active">
+                    <a href="#">
+                        <ion-icon name="home-outline"></ion-icon>
+                        <span class="links">Dashboard</span>
+                    </a>
+                </li>
+                <li class="navList">
+                    <a href="#">
+                        <ion-icon name="disc-outline"></ion-icon>
+                        <span class="links">MovieLists</span>
+                    </a>
+                </li>
+
+                <li class="navList">
+                    <a href="#">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <span class="links">Customer</span>
+                    </a>
+                </li>
+                <li class="navList">
+                    <a href="#">
+                        <ion-icon name="checkmark-circle-outline"></ion-icon>
+                        <span class="links">Requests</span>
+                    </a>
+                </li>
+
+                <li class="navList">
+                    <a href="#">
+                        <ion-icon name="cart-outline"></ion-icon>
+                        <span class="links">Rentals</span>
+                    </a>
+                </li>
+
+                <li class="navList">
+                    <a href="#">
+                        <ion-icon name="document-outline"></ion-icon>
+                        <span class="links">Reports</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="bottom-link">
+                <li>
+                    <a href="../Admin.html" onclick="logout()">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                        <span class="links">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- alert -->
+    <div id="customAlert">
+        <span id="alertMessage"></span>
+        <button onclick="hideAlert()">OK</button>
+    </div>
+
+    <div id="content">
+    
+    <section class="dashboard">
+        <span class="admin">Welcome to Admin</span>
+        <div class="top">
+            <div id="notificationIcon" class="notification-icon">
+                <ion-icon name="notifications-outline"></ion-icon>
+                <span class="notification-Count">0</span>
+                
+            </div>
+        </div>
+
+    <div class="container">
+            <div class="overview">
+                <div class="title">
+                    <ion-icon name="speedometer"></ion-icon>
+                    <span class="text">Dashboard</span>
+                </div>
+                <div class="boxes">
+                    <div class="box box1">
+                        <ion-icon name="film-outline"></ion-icon>
+                        <span class="text">Total DVDs</span>
+                        <span class="number" id="totalDVDs">0</span>
+                    </div>
+                    <div class="box box2">
+                        <ion-icon name="people-outline"></ion-icon>
+                        <span class="text">Total users</span>
+                        <span class="number" id="totalUsers">0</span>
+                    </div>
+                    <div class="box box3">
+                        <ion-icon name="rocket-outline"></ion-icon>
+                        <span class="text">Total Rent</span>
+                        <span class="number" id="totalrents">0</span>
+                    </div>
+                    <div class="box box4">
+                        <ion-icon name="cash-outline"></ion-icon>
+                        <span class="text">Total Earnings</span>
+                        <span class="number" id="totalcash">00</span>
+                    </div>
+                </div> 
+            </div>
+            
+<!---------------------- Recent Activities --------------------------------------->
+            <div class="data-table activityTable">
+                <div class="title">
+                    <ion-icon name="time-outline"></ion-icon>
+                    <span class="text">Frequently Rent DVDs</span>
+                </div>
+                <div>
+                    <!-- Enter any table or section here -->
+                </div>
+            </div>
+
+            <!-- overdue alert -->
+            <div class="notification-wrapper">
+                <!-- Notification Icon -->
+                <div class="notification-icon" onclick='toggleNotificationDropdown()'>
+                    🔔
+                    <span class="badge" id="notification-count">0</span>
+                </div>
+        
+                <!-- Notification Dropdown -->
+                <div class="notification-dropdown" id="notification-dropdown">
+                    <!-- Notifications will be dynamically injected here -->
+                </div>
+            </div>
+
+            <!--  -->
+<!------------------- DVD list Content ------------------------------>
+    <div style="display:none" class="data-table userDetailsTable">
+                <div class="title">
+                    <ion-icon name="disc-outline"></ion-icon>
+                    <span class="text">DVD Lists</span>
+                </div>
+
+<!--------------------------- modal popup -------------------------------->
+    <div class="modal" id="dvdModal">
+        <div class="modal-content">
+        <div class="wrapper">
+            <div class="container">
+                <button id="closeModalBtn" class="close-btn" aria-label="Close alert" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+        <header id="modal-title"></header>
+    <!------------------------- form ----------------------------------------->
+        <form action="#" id="modal-form">
+            <div class="field id">
+                <div class="input-area">
+                <input type="hidden" id="dvdid">
+                </div>
+            </div>
+            <div class="field title">
+            <div class="input-area">
+                <label for="title">DVD Title:</label>
+                <input type="text" id="title" placeholder="DVD Title" required>
+                <i class="error error-icon fas fa-exclamation-circle"></i>
+            </div>
+          
+            </div>
+
+            <div class="field director">
+            <div class="input-area">
+                <label for="director">Director:</label>
+                <input type="text" id="director" placeholder="Director" required>
+                <i class="error error-icon fas fa-exclamation-circle"></i>
+            </div>
+            <!-- <div class="error error-txt">Director can't be blank</div> -->
+            </div>
+
+            <div class="field releasedate">  
+                <div class="input-area">
+                    <label for="releaseDate">Release Date:</label>
+                    <input type="date" id="releaseDate" name="releaseDate" required>
+                <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div>
+                <!-- <div class="error error-txt">Date can't be blank</div> -->
+            </div>
+
+            <div class="field genre">
+                <div class="input-area">
+                    <label for="newCategory">Category Name:</label>
+                    <div style="display: flex;">
+                        <select id="genre" name="genre" required style="flex: 1;">  
+                        </select>
+                        <button type="button" onclick="openCategoryModal()">New Category</button>
+                    </div>
+                <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div>
+                <!-- <div class="error error-txt">Category can't be blank</div> -->
+            </div>
+
+            <div class="field copies">
+                <div class="input-area">
+                <label for="copies">Copies:</label>
+                <input type="number" id="copies" placeholder="copies" min="1" max="100" required>
+                <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div>
+                <!-- <div class="error error-txt">copies can't be blank</div> -->
+            </div>
+
+            <div class="field image">
+                <div class="input-area">
+                    <label for="image">DVD Image:</label>
+                    <input type="file" id="image" name="image" accept="image/*" required>
+                <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div> 
+            </div>
+
+            <div class="field price">
+                <label id="price" for="price"><b>Price:Rs.80.00</b></label>
+            </div>
+            
+            <button  id="submit-btn" class="btn" onclick="addDVD()">Add new DVD</button>
+        </form>
+        </div>
+        </div>
+    </div>
+
+
+<!-- Categories modal window  -->
+    <div id="categoryModal" class="modal">
+        <div class="modal-content">
+            <div class="container">
+                <button id="closeModalBtn" class="close-btn" onclick="closeCategoryModal()" aria-label="Close alert" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <center><h2>Add New Category</h2></center>
+            <label for="newCategory">Category Name:</label>
+            <input type="text" id="newCategory" name="newCategory" required>
+            <button type="button" class="btn" onclick="addCategory()">Add Category</button>
+        </div>
+    </div>
+
+ <!------------ table view ---------------------->
+            <div>
+                <button class="btn-right" id="add-dvd-btn">Create New DVD</button>
+                <h2>Current DVD Inventory</h2>
+            </div>
+
+            <div class="filter">
+                <select id="dropdown">
+                    <option value="all">All</option>
+                    <option value="title">Title</option>
+                    <option value="genre">Genre</option>
+                    <option value="director">Director</option>
+                </select>
+                    <input type="text" name="searchtxt" id="searchtxt" placeholder="Search.....">
+                    <button class="btn" id="search-dvd-btn"><ion-icon name="search-outline"></ion-icon> Search</button>
+            </div> 
+
+            <div>
+                <table id="dvdTable">
+                    <thead>
+                        <tr>
+                                <th>Image</th>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Director</th>
+                                <th>Release Date</th>
+                                <th>Genre</th>
+                                <th>Copies</th>
+                                <th>Price</th>
+                                <th id="action-btn">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- DVD entries -->
+                        </tbody>
+                </table>
+            </div>
+</div>
+
+<!----------------------------- Customers ---------------------------------------------------->
+
+            <div style="display:none" class="data-table CustomerDetails">
+                <div class="title">
+                    <ion-icon name="people"></ion-icon>
+                    <span class="text">Customers</span>
+                </div>
+                <div>
+                    <!-- Enter any table or section here -->
+                    <table id="customerTable">
+                        <thead>
+                            <tr>
+                                <th>CustomerID</th>
+                                <th>Name</th>
+                                <th>Phone No</th>
+                                <th>Address</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- DVD entries will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+<!----------------------------- Request section ------------------------------------------------>
+            <div style="display:none" class="data-table">
+                <div class="title">
+                    <ion-icon name="pricetag"></ion-icon>
+                    <span class="text">Rental Requests</span>
+                </div>
+                        <!--------------------------------- notification ------------------------------------------------->
+            <!-- <div id="notificationModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Rent Requests notification</h2>
+                </div>
+            </div> -->
+                    <div>
+                        <table id="notificationTable">
+                            <thead>
+                                <tr>
+                                    <th>Request ID</th>
+                                    <th>Customer</th>
+                                    <th>DVD Name</th>
+                                    <th>Status</th>
+                                    <th>Request Date</th>
+                                    <th id="action-btn">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Requests will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+            </div> 
+   <!-------------------------- Rent Table --------------------------------------->
+        <div style="display:none" class="data-table RentDetails">
+                <div class="title">
+                    <ion-icon name="people"></ion-icon>
+                    <span class="text">Rents</span>
+                </div>
+   
+                <div>
+                    <table id="RentalTable">
+                        <thead>
+                            <tr>
+                                <th>Rent ID</th>
+                                <th>Customer ID</th> 
+                                <th>Movie Name</th>
+                                <th>Rent Date</th>
+                                <th>Due Date</th>
+                                <th>Return Date</th>
+                                <th>Advance</th>
+                                <th>Balance Pay</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+
+ <!---------------------- Modal HTML for checking DVD condition --------------------------------->
+<div id="checkConditionModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Check DVD Condition</h2>
+        <form id="conditionForm">
+            <label for="dvdCondition">Is the DVD damaged?</label>
+            <select id="dvdCondition" name="dvdCondition">
+                <option value="ok">No, it's fine</option>
+                <option value="damaged">Yes, it's damaged</option>
+            </select>
+
+            <label for="returnDate">Return Date:</label>
+            <input type="date" id="returnDate" name="returnDate">
+
+            <button id='submit-cfm' type="submit">Confirm Return</button>
+        </form>
+    </div>
+</div>
+
+<!----------------------------- Reports --------------------------------------------------------->
+
+            <div style="display:none" class="data-table">
+                <div class="title">
+                    <ion-icon name="document"></ion-icon>
+                    <span class="text">Reports</span>
+                </div>
+                <div class="row">
+                    
+                    <div class="col-sm-8 col-4 text-right m-b-20">
+                        <button class="report-btn"><ion-icon name="basket-outline"></ion-icon> Rental Report</button>
+                    </div>
+                    <div class="col-sm-8 col-9 text-right m-b-20">
+                        <button class="report-btn"><ion-icon name="man-outline"></ion-icon> Customer Report</button>
+                    </div>
+                </div> 
+
+                <div>
+                    <!--table -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+  
+<!--icons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<!-- customize javascript -->
+    <script src="adminDashboard.js"></script>
+
+</body>
+</html>

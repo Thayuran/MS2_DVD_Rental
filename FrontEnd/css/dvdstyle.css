@@ -1,0 +1,553 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f8f8f8;
+}
+nav {
+    width: 100%;
+    max-width: 1980px;
+    position: relative;
+    z-index: 2;
+    /* position: absolute; */
+    
+
+}
+
+nav .container {
+    width: 90%;
+    margin: 0 auto;
+    min-height: 80px;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.nav-list {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.table-container {
+    width: 80%;
+    text-align: center;
+}
+
+.header1,
+ .row {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.row:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.cell {
+    flex: 1;
+    padding: 10px;
+}
+
+.header1 {
+    background-color: #4CAF50;
+    color: white;
+}
+.wrapper{
+  width: 380px;
+  padding: 40px 30px 50px 30px;
+  background: #fff;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.1);
+}
+.wrapper header{
+  font-size: 35px;
+  font-weight: 600;
+}
+.wrapper form{
+  margin: 40px 0;
+}
+.wrapper a{
+  color: #a0a8c7;
+  text-decoration: none;
+}
+.wrapper a:hover{
+  text-decoration: underline;
+}
+
+
+
+
+
+/* input[type="text"], input[type="number"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+} */
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+.container {
+  position: relative; 
+  padding: 20px;    
+  border: none; 
+  height: 10px; 
+}
+
+.btn
+{
+  margin:10px 80px;
+  width: 200px;
+}
+span
+{
+  font-size: 30px; 
+}
+
+.close-btn {
+ 
+  position: absolute; 
+  top: 0;          
+  right: 10px;       
+  background: none;   
+  border: none;      
+  font-size: 24px;   
+  color: red;         
+  cursor: pointer;   
+  padding: 0;        
+  margin: 0;          
+ }
+
+.close-btn:hover {
+  background-color: #747070;;
+}
+
+.cell button.edit {
+    background-color: #008CBA;
+}
+
+.cell button.edit:hover {
+    background-color: #005f5f;
+}
+
+.cell button.delete {
+    background-color: #f44336;
+}
+
+.cell button.delete:hover {
+    background-color: #e31e10;
+}
+
+.cell.actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+#modal-title
+{
+  text-align: center;
+  padding-bottom: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index:2;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    align-items:center; 
+  
+    padding: 10px 30px 50px 30px;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.1);
+   
+  }
+  
+  .modal-content {
+    margin: 15% auto;
+    padding: 10px 20px;
+    width: 80%;
+    max-width: 350px; 
+    border-radius: 15px;
+    background-color: #6a95bd;
+  }
+  .modal header{
+    font-size: 35px;
+    font-weight: 600;
+  }
+
+
+  /* form */
+  /* form .field{
+    width: 100%;
+    margin-bottom: 20px;
+    align-items: center; 
+    gap: 10px;
+  } */
+
+  /* .field input[type="date"] {
+    width: 225px; 
+    margin: 5px;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    
+} */
+/* 
+.field .input-area > div {
+  display: flex; 
+  align-items: center; 
+  gap: 5px; 
+}
+.field select {
+  width: 50px; 
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+} */
+
+
+/* button {
+  width:110px;
+  padding: 5px;
+  background-color: #007bff; 
+  color: white; 
+  border: none; 
+  border-radius: 4px;
+  cursor: pointer; margin: 5px;
+} */
+
+/* .field input[type="file"] {
+  width: 330px;
+  padding: 5px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px;
+
+  height: auto;
+  background: initial;
+  padding: initial;
+}
+form input[type="file"] {
+  width: 330px;
+  height: auto; 
+  padding: 5px; 
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: initial; 
+} */
+
+  form .field.shake{
+    animation: shake 0.3s ease-in-out;
+  }
+
+  form .field .input-area{
+    height: 50px;
+    width: 100%;
+    position: relative;
+  }
+  form input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding: 0 45px;
+    font-size: 18px;
+    background: none;
+    caret-color: #5372F0;
+    border-radius: 5px;
+    border: 1px solid #bfbfbf;
+    border-bottom-width: 2px;
+    transition: all 0.2s ease;
+  }
+  form .field input:focus,
+  form .field.valid input{
+    border-color: #5372F0;
+  }
+  form .field.shake input,
+  form .field.error input{
+    border-color: #dc3545;
+  }
+  .field .input-area i{
+    position: absolute;
+    top: 50%;
+    font-size: 18px;
+    pointer-events: none;
+    transform: translateY(-50%);
+  }
+  .input-area .icon{
+    left: 15px;
+    color: #bfbfbf;
+    transition: color 0.2s ease;
+  }
+  .input-area .error-icon{
+    right: 15px;
+    color: #dc3545;
+  }
+  form input:focus ~ .icon,
+  form .field.valid .icon{
+    color: #5372F0;
+  }
+  form .field.shake input:focus ~ .icon,
+  form .field.error input:focus ~ .icon{
+    color: #bfbfbf;
+  }
+  form input::placeholder{
+    color: #bfbfbf;
+    font-size: 17px;
+  }
+  form .field .error-txt{
+    color: #dc3545;
+    text-align: left;
+    margin-top: 5px;
+  }
+  form .field .error{
+    display: none;
+  }
+  form .field.shake .error,
+  form .field.error .error{
+    display: block;
+  }
+  form .pass-txt{
+    text-align: left;
+    margin-top: -10px;
+  }
+ 
+  form input[type="submit"]{
+    height: 50px;
+    margin-top: 30px;
+    color: #fff;
+    padding: 0;
+    border: none;
+    background: #5372F0;
+    cursor: pointer;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  form input[type="submit"]:hover{
+    background: #2c52ed;
+  }
+  
+
+  /* ----------------------------------------------------------------------- */
+  /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #5372F0;
+} */
+::selection{
+  color: #fff;
+  background: #5372F0;
+}
+/*  */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  align-items:center; 
+
+ 
+}
+
+.modal-content {
+  margin: 15% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;  
+}
+
+
+.navbar .login-btn {
+  border: none;
+  outline: none;
+  background: #fff;
+  color: #24a7cf;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+
+/*  */
+.wrapper{
+  width: 380px;
+  padding: 40px 30px 50px 30px;
+  background: #fff;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.1);
+}
+.wrapper header{
+  font-size: 35px;
+  font-weight: 600;
+}
+.wrapper form{
+  margin: 40px 0;
+}
+form .field{
+  width: 100%;
+  margin-bottom: 20px;
+}
+form .field.shake{
+  animation: shake 0.3s ease-in-out;
+}
+@keyframes shake {
+  0%, 100%{
+    margin-left: 0px;
+  }
+  20%, 80%{
+    margin-left: -12px;
+  }
+  40%, 60%{
+    margin-left: 12px;
+  }
+}
+form .field .input-area{
+  height: 50px;
+  width: 100%;
+  position: relative;
+}
+form input{
+  width: 100%;
+  height: 100%;
+  outline: none;
+  padding: 0 45px;
+  font-size: 18px;
+  background: none;
+  caret-color: #5372F0;
+  border-radius: 5px;
+  border: 1px solid #bfbfbf;
+  border-bottom-width: 2px;
+  transition: all 0.2s ease;
+}
+form .field input:focus,
+form .field.valid input{
+  border-color: #5372F0;
+}
+form .field.shake input,
+form .field.error input{
+  border-color: #dc3545;
+}
+.field .input-area i{
+  position: absolute;
+  top: 50%;
+  font-size: 18px;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+.input-area .icon{
+  left: 15px;
+  color: #bfbfbf;
+  transition: color 0.2s ease;
+}
+.input-area .error-icon{
+  right: 15px;
+  color: #dc3545;
+}
+form input:focus ~ .icon,
+form .field.valid .icon{
+  color: #5372F0;
+}
+form .field.shake input:focus ~ .icon,
+form .field.error input:focus ~ .icon{
+  color: #bfbfbf;
+}
+form input::placeholder{
+  color: #bfbfbf;
+  font-size: 17px;
+}
+form .field .error-txt{
+  color: #dc3545;
+  text-align: left;
+  margin-top: 5px;
+}
+form .field .error{
+  display: none;
+}
+form .field.shake .error,
+form .field.error .error{
+  display: block;
+}
+form .pass-txt{
+  text-align: left;
+  margin-top: -10px;
+}
+.wrapper a{
+  color: #5372F0;
+  text-decoration: none;
+}
+.wrapper a:hover{
+  text-decoration: underline;
+}
+form input[type="submit"]{
+  height: 50px;
+  margin-top: 30px;
+  color: #fff;
+  padding: 0;
+  border: none;
+  background: #5372F0;
+  cursor: pointer;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+form input[type="submit"]:hover{
+  background: #2c52ed;
+}
+
+#dvdTable td
+{
+  z-index:2;
+}
