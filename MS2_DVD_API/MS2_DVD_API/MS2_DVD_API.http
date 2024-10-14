@@ -1,0 +1,6 @@
+@MS2_DVD_API_HostAddress = http://localhost:5271
+
+GET {{MS2_DVD_API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
