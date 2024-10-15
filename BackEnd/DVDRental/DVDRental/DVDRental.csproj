@@ -13,8 +13,6 @@
 
   <ItemGroup>
     <Folder Include="DTOs\ResponseDTO\" />
-    <Folder Include="DTOs\RequestDTO\" />
-    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>

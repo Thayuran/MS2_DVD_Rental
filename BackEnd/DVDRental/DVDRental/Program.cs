@@ -1,4 +1,7 @@
 
+using DVDRental.Data;
+using DVDRental.Repositories;
+
 namespace DVDRental
 {
     public class Program
@@ -14,7 +17,19 @@ namespace DVDRental
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+
+            var connectionString = builder.Configuration.GetConnectionString("connect");
+
+            builder.Services.AddSingleton<IAdminDvdRepository>(provider => new AdminDvdRepository(connectionString));
+
+
+
             var app = builder.Build();
+
+            var dbInitializer = new DataBaseInitializer(connectionString);
+            dbInitializer.Initialize();
+
+
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

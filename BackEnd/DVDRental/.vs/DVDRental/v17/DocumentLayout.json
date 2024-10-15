@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "E:\\Unicom TIC\\MS2_DVD_Rental\\BackEnd\\DVDRental\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B59EB81E-E9B0-461A-8CB1-0F144A32FA72}|DVDRental\\DVDRental.csproj|e:\\unicom tic\\ms2_dvd_rental\\backend\\dvdrental\\dvdrental\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B59EB81E-E9B0-461A-8CB1-0F144A32FA72}|DVDRental\\DVDRental.csproj|solutionrelative:dvdrental\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B59EB81E-E9B0-461A-8CB1-0F144A32FA72}|DVDRental\\DVDRental.csproj|e:\\unicom tic\\ms2_dvd_rental\\backend\\dvdrental\\dvdrental\\repositories\\admindvdrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B59EB81E-E9B0-461A-8CB1-0F144A32FA72}|DVDRental\\DVDRental.csproj|solutionrelative:dvdrental\\repositories\\admindvdrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B59EB81E-E9B0-461A-8CB1-0F144A32FA72}|DVDRental\\DVDRental.csproj|e:\\unicom tic\\ms2_dvd_rental\\backend\\dvdrental\\dvdrental\\data\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B59EB81E-E9B0-461A-8CB1-0F144A32FA72}|DVDRental\\DVDRental.csproj|solutionrelative:dvdrental\\data\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B59EB81E-E9B0-461A-8CB1-0F144A32FA72}|DVDRental\\DVDRental.csproj|e:\\unicom tic\\ms2_dvd_rental\\backend\\dvdrental\\dvdrental\\controllers\\admindvdcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B59EB81E-E9B0-461A-8CB1-0F144A32FA72}|DVDRental\\DVDRental.csproj|solutionrelative:dvdrental\\controllers\\admindvdcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B59EB81E-E9B0-461A-8CB1-0F144A32FA72}|DVDRental\\DVDRental.csproj|e:\\unicom tic\\ms2_dvd_rental\\backend\\dvdrental\\dvdrental\\entities\\moviedvd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B59EB81E-E9B0-461A-8CB1-0F144A32FA72}|DVDRental\\DVDRental.csproj|solutionrelative:dvdrental\\entities\\moviedvd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +26,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CategoriesController.cs",
-              "DocumentMoniker": "E:\\Unicom TIC\\MS2_DVD_Rental\\BackEnd\\DVDRental\\DVDRental\\Controllers\\CategoriesController.cs",
-              "RelativeDocumentMoniker": "DVDRental\\Controllers\\CategoriesController.cs",
-              "ToolTip": "E:\\Unicom TIC\\MS2_DVD_Rental\\BackEnd\\DVDRental\\DVDRental\\Controllers\\CategoriesController.cs",
-              "RelativeToolTip": "DVDRental\\Controllers\\CategoriesController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAfAAAA",
+              "DocumentIndex": 1,
+              "Title": "DataBaseInitializer.cs",
+              "DocumentMoniker": "E:\\Unicom TIC\\MS2_DVD_Rental\\BackEnd\\DVDRental\\DVDRental\\Data\\DataBaseInitializer.cs",
+              "RelativeDocumentMoniker": "DVDRental\\Data\\DataBaseInitializer.cs",
+              "ToolTip": "E:\\Unicom TIC\\MS2_DVD_Rental\\BackEnd\\DVDRental\\DVDRental\\Data\\DataBaseInitializer.cs",
+              "RelativeToolTip": "DVDRental\\Data\\DataBaseInitializer.cs",
+              "ViewState": "AQIAAA4AAABAMzMzMzMhwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T10:23:47.758Z",
+              "WhenOpened": "2024-10-15T06:17:09.63Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "MovieDvd.cs",
+              "DocumentMoniker": "E:\\Unicom TIC\\MS2_DVD_Rental\\BackEnd\\DVDRental\\DVDRental\\Entities\\MovieDvd.cs",
+              "RelativeDocumentMoniker": "DVDRental\\Entities\\MovieDvd.cs",
+              "ToolTip": "E:\\Unicom TIC\\MS2_DVD_Rental\\BackEnd\\DVDRental\\DVDRental\\Entities\\MovieDvd.cs",
+              "RelativeToolTip": "DVDRental\\Entities\\MovieDvd.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T06:16:31.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminDvdRepository.cs",
+              "DocumentMoniker": "E:\\Unicom TIC\\MS2_DVD_Rental\\BackEnd\\DVDRental\\DVDRental\\Repositories\\AdminDvdRepository.cs",
+              "RelativeDocumentMoniker": "DVDRental\\Repositories\\AdminDvdRepository.cs",
+              "ToolTip": "E:\\Unicom TIC\\MS2_DVD_Rental\\BackEnd\\DVDRental\\DVDRental\\Repositories\\AdminDvdRepository.cs",
+              "RelativeToolTip": "DVDRental\\Repositories\\AdminDvdRepository.cs",
+              "ViewState": "AQIAABIAAAAAzszMzMz8vyQAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T06:15:33.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "AdminDvdController.cs",
               "DocumentMoniker": "E:\\Unicom TIC\\MS2_DVD_Rental\\BackEnd\\DVDRental\\DVDRental\\Controllers\\AdminDvdController.cs",
               "RelativeDocumentMoniker": "DVDRental\\Controllers\\AdminDvdController.cs",
               "ToolTip": "E:\\Unicom TIC\\MS2_DVD_Rental\\BackEnd\\DVDRental\\DVDRental\\Controllers\\AdminDvdController.cs",
               "RelativeToolTip": "DVDRental\\Controllers\\AdminDvdController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAmAAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAA9wBkAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-23T04:12:48.223Z"
+              "WhenOpened": "2024-09-23T04:12:48.223Z",
+              "EditorCaption": ""
             }
           ]
         }
