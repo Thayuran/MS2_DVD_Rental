@@ -1,4 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using System.Security.Principal;
+using System;
+using Microsoft.Data.SqlClient;
+using MS2_DVD_API.Entity;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MS2_DVD_API.Data
 {
@@ -31,7 +35,20 @@ namespace MS2_DVD_API.Data
                         Action BIT NOT NULL
                     );
                 END;
-            ";
+           
+                IF NOT EXISTS(SELECT * FROM sys.tables WHERE name = 'Movies')
+                BEGIN
+                    CREATE TABLE Movies(
+                        movieID INT PRIMARY KEY IDENTITY(1,1), 
+                        Title NVARCHAR(100) NOT NULL,
+                        Genre NVARCHAR(50) NOT NULL,
+                        Director NVARCHAR(100) NOT NULL,
+                        ReleaseDate DATETIME2 NOT NULL,   
+                        Cast NVARCHAR(MAX), 
+                        NoOfCopies INT NOT NULL
+                    );
+                END;
+                ";
                 command.ExecuteNonQuery();
             }
         }
