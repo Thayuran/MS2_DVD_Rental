@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MS2_DVD_API.props" />
+</Project>

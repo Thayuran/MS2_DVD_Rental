@@ -1,34 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_API\\",
+  "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_api\\ms2_dvd_api\\entity\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\entity\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_api\\ms2_dvd_api\\data\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\data\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_api\\ms2_dvd_api\\repository\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_rental\\ms2_dvd_api\\ms2_dvd_api\\repository\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\repository\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_api\\ms2_dvd_api\\irepository\\icustomerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_rental\\ms2_dvd_api\\ms2_dvd_api\\data\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\data\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_rental\\ms2_dvd_api\\ms2_dvd_api\\irepository\\icustomerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\irepository\\icustomerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_api\\ms2_dvd_api\\iservice\\icustomerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\iservice\\icustomerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_api\\ms2_dvd_api\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_rental\\ms2_dvd_api\\ms2_dvd_api\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_api\\ms2_dvd_api\\service\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\service\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_rental\\ms2_dvd_api\\ms2_dvd_api\\entity\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\entity\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_rental\\ms2_dvd_api\\ms2_dvd_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,17 +34,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "CustomerController.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_API\\MS2_DVD_API\\Controllers\\CustomerController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Controllers\\CustomerController.cs",
               "RelativeDocumentMoniker": "MS2_DVD_API\\Controllers\\CustomerController.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_API\\MS2_DVD_API\\Controllers\\CustomerController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Controllers\\CustomerController.cs",
               "RelativeToolTip": "MS2_DVD_API\\Controllers\\CustomerController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA1AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAE0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-07T14:17:11.87Z",
               "IsPinned": true,
@@ -56,55 +52,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ICustomerService.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_API\\MS2_DVD_API\\IService\\ICustomerService.cs",
-              "RelativeDocumentMoniker": "MS2_DVD_API\\IService\\ICustomerService.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_API\\MS2_DVD_API\\IService\\ICustomerService.cs",
-              "RelativeToolTip": "MS2_DVD_API\\IService\\ICustomerService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T14:18:10.852Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CustomerService.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_API\\MS2_DVD_API\\Service\\CustomerService.cs",
-              "RelativeDocumentMoniker": "MS2_DVD_API\\Service\\CustomerService.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_API\\MS2_DVD_API\\Service\\CustomerService.cs",
-              "RelativeToolTip": "MS2_DVD_API\\Service\\CustomerService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwA0AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T14:19:29.568Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ICustomerRepository.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_API\\MS2_DVD_API\\IRepository\\ICustomerRepository.cs",
-              "RelativeDocumentMoniker": "MS2_DVD_API\\IRepository\\ICustomerRepository.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_API\\MS2_DVD_API\\IRepository\\ICustomerRepository.cs",
-              "RelativeToolTip": "MS2_DVD_API\\IRepository\\ICustomerRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T14:17:52.893Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "CustomerRepository.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_API\\MS2_DVD_API\\Repository\\CustomerRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Repository\\CustomerRepository.cs",
               "RelativeDocumentMoniker": "MS2_DVD_API\\Repository\\CustomerRepository.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_API\\MS2_DVD_API\\Repository\\CustomerRepository.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Repository\\CustomerRepository.cs",
               "RelativeToolTip": "MS2_DVD_API\\Repository\\CustomerRepository.cs",
-              "ViewState": "AQIAAAAAAAAwXJq84ysvwBUAAABSAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAlwBUAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-07T14:19:13.606Z",
               "IsPinned": true,
@@ -112,28 +66,56 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DatabaseInitializer.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_API\\MS2_DVD_API\\Data\\DatabaseInitializer.cs",
-              "RelativeDocumentMoniker": "MS2_DVD_API\\Data\\DatabaseInitializer.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_API\\MS2_DVD_API\\Data\\DatabaseInitializer.cs",
-              "RelativeToolTip": "MS2_DVD_API\\Data\\DatabaseInitializer.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABsAAAAyAAAA",
+              "DocumentIndex": 2,
+              "Title": "ICustomerRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\IRepository\\ICustomerRepository.cs",
+              "RelativeDocumentMoniker": "MS2_DVD_API\\IRepository\\ICustomerRepository.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\IRepository\\ICustomerRepository.cs",
+              "RelativeToolTip": "MS2_DVD_API\\IRepository\\ICustomerRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T00:50:04.026Z",
+              "WhenOpened": "2024-10-07T14:17:52.893Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Customer.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_API\\MS2_DVD_API\\Entity\\Customer.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Entity\\Customer.cs",
               "RelativeDocumentMoniker": "MS2_DVD_API\\Entity\\Customer.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_API\\MS2_DVD_API\\Entity\\Customer.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Entity\\Customer.cs",
               "RelativeToolTip": "MS2_DVD_API\\Entity\\Customer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAUAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-08T00:49:38.813Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DatabaseInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Data\\DatabaseInitializer.cs",
+              "RelativeDocumentMoniker": "MS2_DVD_API\\Data\\DatabaseInitializer.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Data\\DatabaseInitializer.cs",
+              "RelativeToolTip": "MS2_DVD_API\\Data\\DatabaseInitializer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T14:24:29.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Program.cs",
+              "RelativeDocumentMoniker": "MS2_DVD_API\\Program.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Program.cs",
+              "RelativeToolTip": "MS2_DVD_API\\Program.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBYAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T13:50:00.66Z",
               "EditorCaption": ""
             }
           ]

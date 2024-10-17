@@ -1,9 +1,7 @@
 
 using MS2_DVD_API.Data;
 using MS2_DVD_API.IRepository;
-using MS2_DVD_API.IService;
 using MS2_DVD_API.Repository;
-using MS2_DVD_API.Service;
 
 namespace MS2_DVD_API
 {
@@ -22,9 +20,7 @@ namespace MS2_DVD_API
 
             var connectionString = builder.Configuration.GetConnectionString("Data");
 
-            builder.Services.AddSingleton<ICustomerRepository>(provider => new CustomerRepository(connectionString));
-            builder.Services.AddSingleton<ICustomerService>(provider=>new CustomerService(connectionString));
-
+            builder.Services.AddScoped<ICustomerRepository>(provider => new CustomerRepository(connectionString));
 
             var dbInitializer = new DatabaseInitializer(connectionString);
             dbInitializer.Initialize();
