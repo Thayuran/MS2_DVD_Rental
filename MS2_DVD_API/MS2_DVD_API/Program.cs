@@ -20,8 +20,8 @@ namespace MS2_DVD_API
 
             var connectionString = builder.Configuration.GetConnectionString("Data");
 
-            builder.Services.AddScoped<ICustomerRepository>(provider => new CustomerRepository(connectionString));
-            builder.Services.AddScoped<ImovieRepository>(provider => new MovieRepository(connectionString));
+            builder.Services.AddSingleton<ICustomerRepository>(provider => new CustomerRepository(connectionString));
+            builder.Services.AddSingleton<ImovieRepository>(provider => new MovieRepository(connectionString));
 
             var dbInitializer = new DatabaseInitializer(connectionString);
             dbInitializer.Initialize();
