@@ -2,7 +2,7 @@
 {
     public class Movie_Rent
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
        
         public DateTime RentDate { get; set; }
         public DateTime DueDate { get; set; }
@@ -20,10 +20,10 @@
 
 
         public MovieDvd dvd { get; set; }
-        public int dvdId { get; set; }
+        public string dvdId { get; set; }
 
         public Customer customer { get; set; }
-        public int customerID {  get; set; }
+        public string customerID {  get; set; }
 
     }
 }

@@ -2,9 +2,9 @@
 {
     public class RentalResponseDTO
     {
-        public int Id { get; set; }
-        public int CustomerId { get; set; }
-        public int DVDId { get; set; }
+        public string Id { get; set; }
+        public string CustomerId { get; set; }
+        public string DVDId { get; set; }
         public DateTime RentalDate { get; set; }
         public DateTime DueDate { get; set; }
         public DateTime? ReturnDate { get; set; }

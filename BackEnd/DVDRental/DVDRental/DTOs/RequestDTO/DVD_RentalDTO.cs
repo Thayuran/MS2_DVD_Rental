@@ -4,7 +4,7 @@ namespace DVDRental.DTOs.RequestDTO
 {
     public class DVD_RentalDTO
     {
-        public int Id { get; set; }
+       /* public int Id { get; set; }*/
 
         public DateTime RentDate { get; set; }
         public DateTime DueDate { get; set; }
@@ -17,9 +17,9 @@ namespace DVDRental.DTOs.RequestDTO
         public decimal? DelayFine { get; set; }
         public decimal? DamageFine { get; set; }
 
-        public decimal Balance { get; set; }
+        public decimal? Balance { get; set; }
         public string Status { get; set; }
-        public int dvdId { get; set; }
-        public int customerId { get; set; }
+        public string dvdId { get; set; }
+        public string customerId { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DVDRental.DTOs.RequestDTO;
 using DVDRental.DTOs.ResponseDTO;
+using DVDRental.Entities;
 using DVDRental.Repositories;
 
 namespace DVDRental.Services
@@ -9,10 +10,13 @@ namespace DVDRental.Services
         public readonly IRentRepository _rentRepository;
         public readonly IRequestRepository _requestRepository;
         public readonly IAdminDvdRepository _adminDvdRepository;
+
         public const decimal Rental_Price = 80;
         public const decimal Advance_Payment = 200;
         public const decimal Delay_Fine = 5;
         public const decimal Damage_Fine = 50;
+        
+        
         public RentService() { }
 
         public RentService(IRentRepository rentRepository, IRequestRepository requestRepository, IAdminDvdRepository adminDvdRepository)
@@ -23,19 +27,51 @@ namespace DVDRental.Services
         }
 
 
-        public async Task<IEnumerable<RentalResponseDTO>> GetAllRentalsAsync()
+        public async Task<List<RentalResponseDTO>> GetAllRentalsAsync()
         {
             var rentals = await _rentRepository.GetAllRentalsAsync();
-            return rentals.Select(r => MapToDto(r));
+            
+            return rentals.Select(rental => new RentalResponseDTO
+            {
+                Id = rental.ID,
+                CustomerId = rental.customerID,
+                DVDId = rental.dvdId,
+                RentalDate = rental.RentDate,
+                DueDate = rental.DueDate,
+                ReturnDate = rental.ReturnDate,
+                RentalCharge = rental.RentalCharge,
+                AdvancePayment = rental.AdvancePayment,
+                DelayFine = rental.DelayFine,
+                DamageFine = rental.DamageFine,
+                Status = rental.Status
+            }).ToList();
         }
 
         public async Task<RentalResponseDTO> GetRentalByIdAsync(string id)
         {
             var rental = await _rentRepository.GetRentalByIdAsync(id);
-            return MapToDto(rental);
+            if (rental == null)
+            {
+                throw new KeyNotFoundException($"Rental with ID {id} not found.");
+            }
+
+            return new RentalResponseDTO
+            {
+                Id = rental.ID,
+                CustomerId = rental.customerID,
+                DVDId = rental.dvdId,
+                RentalDate = rental.RentDate,
+                DueDate = rental.DueDate,
+                ReturnDate = rental.ReturnDate,
+                RentalCharge = rental.RentalCharge,
+                AdvancePayment = rental.AdvancePayment,
+                DelayFine = rental.DelayFine,
+                DamageFine = rental.DamageFine,
+                Status = rental.Status
+            };
         }
 
-        public async Task<int> CreateRentalFromRequestAsync(string requestId)
+        public async Task<RentalResponseDTO> CreateRentalFromRequestAsync(string requestId)
         {
             var request = await _requestRepository.GetRequestByIdAsync(requestId);
             if (request == null || request.Status != "Accepted")
@@ -43,29 +79,39 @@ namespace DVDRental.Services
 
             var dvd = await _adminDvdRepository.GetMovieById(request.movieId);
                
-            if (dvd.AvailableCopies <= 1)
+            if (dvd.Copies <= 1)
                 throw new InvalidOperationException("No available copies of the DVD");
 
-            var rental = new DVDRental
+            var rental = new Movie_Rent
             {
-                CustomerId = request.customerId,
-                DVDId = request.movieId,
-                RentalDate = DateTime.Now,
+                customerID = request.customerId,
+                dvdId = request.movieId,
+                RentDate = DateTime.Now,
                 DueDate = DateTime.Now.AddDays(7),
                 RentalCharge = Rental_Price,
                 AdvancePayment = Advance_Payment,
-                Status = "Active"
+                Status = "Rented"
             };
 
-            var rentalId = await _rentRepository.AddRentalAsync(rental);
+            var rentaldvd = await _rentRepository.AddRentalAsync(rental);
 
-            dvd.AvailableCopies--;
-            await _adminDvdRepository.UpdateDVDAsync(dvd);
+            dvd.Copies--;
+            await _adminDvdRepository.UpdateAsync(dvd);
 
             request.Status = "Completed";
             await _requestRepository.UpdateRequestAsync(request);
 
-            return rentalId;
+            return new RentalResponseDTO
+            {
+                Id = rentaldvd.ID,
+                CustomerId = rentaldvd.customerID,
+                DVDId = rentaldvd.dvdId,
+                RentalDate = rentaldvd.RentDate,
+                DueDate = rentaldvd.DueDate,
+                RentalCharge = rentaldvd.RentalCharge,
+                AdvancePayment = rentaldvd.AdvancePayment,
+                Status = rentaldvd.Status
+            };
         }
 
         public async Task ReturnDVDAsync(string rentalId, bool isDamaged)
@@ -90,15 +136,29 @@ namespace DVDRental.Services
 
             await _rentRepository.UpdateRentalAsync(rental);
 
-            var dvd = await _adminDvdRepository.GetDVDByIdAsync(rental.DVDId);
-            dvd.AvailableCopies++;
-            await _adminDvdRepository.UpdateDVDAsync(dvd);
+            var dvd = await _adminDvdRepository.GetMovieById(rental.dvdId);
+            dvd.Copies++;
+            await _adminDvdRepository.UpdateAsync(dvd);
         }
 
-        public async Task<IEnumerable<RentalResponseDTO>> GetOverdueRentalsAsync()
+        public async Task<List<RentalResponseDTO>> GetOverdueRentalsAsync()
         {
             var overdueRentals = await _rentRepository.GetOverdueRentalsAsync();
-            return overdueRentals.Select(r => MapToDto(r));
+
+            return overdueRentals.Select(rental => new RentalResponseDTO
+            {
+                Id = rental.ID,
+                CustomerId = rental.customerID,
+                DVDId = rental.dvdId,
+                RentalDate = rental.RentDate,
+                DueDate = rental.DueDate,
+                ReturnDate = rental.ReturnDate,
+                RentalCharge = rental.RentalCharge,
+                AdvancePayment = rental.AdvancePayment,
+                DelayFine = rental.DelayFine,
+                DamageFine = rental.DamageFine,
+                Status = rental.Status
+            }).ToList();
         }
 
         public async Task CalculateAndApplyFinesAsync()
@@ -113,14 +173,14 @@ namespace DVDRental.Services
             }
         }
 
-        private RentalDto MapToDto(Rental rental)
+        /*private RentalResponseDTO MapToDto(Movie_Rent rental)
         {
-            return new RentalDto
+            return new RentalResponseDTO
             {
-                Id = rental.Id,
-                CustomerId = rental.CustomerId,
-                DVDId = rental.DVDId,
-                RentalDate = rental.RentalDate,
+                Id = rental.ID,
+                CustomerId = rental.customerID,
+                DVDId = rental.dvdId,
+                RentalDate = rental.RentDate,
                 DueDate = rental.DueDate,
                 ReturnDate = rental.ReturnDate,
                 RentalCharge = rental.RentalCharge,
@@ -129,6 +189,6 @@ namespace DVDRental.Services
                 DamageFine = rental.DamageFine,
                 Status = rental.Status
             };
-        }
+        }*/
     }
 }

@@ -1,5 +1,7 @@
-﻿using DVDRental.Entities;
+﻿using DVDRental.DTOs.RequestDTO;
+using DVDRental.Entities;
 using DVDRental.Repositories;
+using DVDRental.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,43 +11,36 @@ namespace DVDRental.Controllers
     [ApiController]
     public class AdminDvdController : ControllerBase
     {
-        private readonly IAdminDvdRepository _adminDvdRepository;
+       /* private readonly IAdminDvdRepository _adminDvdRepository;*/
+        private readonly IAdminDvdService _adminDvdService;
 
-        public AdminDvdController(IAdminDvdRepository adminDvdRepository)
+        public AdminDvdController(IAdminDvdService adminDvdService)
         {
-            _adminDvdRepository = adminDvdRepository;
+            _adminDvdService = adminDvdService;
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            var dvds=_adminDvdRepository.GetAllDVDs();
+            var dvds= _adminDvdService.GetAllDVDsAsync();
+            if (dvds == null)
+                return NotFound();
             return Ok(dvds);
         }
 
         [HttpGet("{dvdId}")]
         public IActionResult GetById(string Id)
         {
-            var dvd = _adminDvdRepository.GetMovieById(Id);
+            var dvd = _adminDvdService.GetDVDByIdAsync(Id);
             if (dvd == null)
                 return NotFound();
             return Ok(dvd);
         }
 
         [HttpPost]
-        public IActionResult CreateNewDVD(MovieDvd movie)
+        public IActionResult CreateNewDVD(DVDRequestDTO movie)
         {
-            var mov = new MovieDvd
-            {
-                ID=movie.ID,
-                MovieName=movie.MovieName,
-                Director=movie.Director,
-                Categories=movie.Categories,
-                ReleaseDate=movie.ReleaseDate,
-                Copies=movie.Copies
-               
-            };
-            _adminDvdRepository.AddDVD(mov);
+            _adminDvdService.AddDVDAsync(movie);
             return Ok();
         }
     }

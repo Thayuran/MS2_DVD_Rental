@@ -24,13 +24,13 @@ namespace DVDRental
             builder.Services.AddSingleton<IAdminDvdRepository>(provider => new AdminDvdRepository(connectionString));
             builder.Services.AddSingleton<ICustomerRepository>(provider => new CustomerRepository(connectionString));
             builder.Services.AddSingleton<IAdminCategoriesRepository>(provider => new AdminCategoriesRepository(connectionString));
-           /* builder.Services.AddSingleton<IRequestRepository>(provider => new RequestRepository(connectionString));
-            builder.Services.AddSingleton<IRentRepository>(provider => new RentRepository(connectionString));*/
+            builder.Services.AddSingleton<IRequestRepository>(provider => new RequestRepository(connectionString));
+            builder.Services.AddSingleton<IRentRepository>(provider => new RentRepository(connectionString));
 
 
 
             builder.Services.AddScoped<ICustomerService, CustomerService>();
-           /* builder.Services.AddScoped<IAdminDvdService, AdminDvdService>();*/
+            builder.Services.AddScoped<IAdminDvdService, AdminDvdService>();
             builder.Services.AddScoped<IAdminCategoriesService, AdminCategoriesService>();
             builder.Services.AddScoped<IRentService, RentService>();
             builder.Services.AddScoped<IRequestService, RequestService>();
