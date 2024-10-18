@@ -31,6 +31,19 @@ namespace DVDRental.Data
                                         Copies INT NOT NULL                   
                                     );
                                 END;
+                    IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Customer')
+                                    BEGIN
+                                        CREATE TABLE Customer (
+                                            Id NVARCHAR(10) PRIMARY KEY, 
+                                            CustomerName NVARCHAR(50) NOT NULL,
+                                            Email NVARCHAR(100) NOT NULL,
+                                            Address NVARCHAR(100) NOT NULL,
+                                            AddressId INT NOT NULL,
+                                            PhoneNo INT NOT NULL, 
+                                            JoinedDate DATETIME2 NOT NULL,
+                                            Action BIT NOT NULL
+                                        );
+                                    END;
                              
                 ";
                 command.ExecuteNonQuery();

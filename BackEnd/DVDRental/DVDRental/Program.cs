@@ -1,6 +1,7 @@
 
 using DVDRental.Data;
 using DVDRental.Repositories;
+using DVDRental.Services;
 
 namespace DVDRental
 {
@@ -21,7 +22,8 @@ namespace DVDRental
             var connectionString = builder.Configuration.GetConnectionString("connect");
 
             builder.Services.AddSingleton<IAdminDvdRepository>(provider => new AdminDvdRepository(connectionString));
-
+            builder.Services.AddSingleton<ICustomerRepository>(provider => new CustomerRepository(connectionString));
+            builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 
             var app = builder.Build();
