@@ -31,7 +31,7 @@ function getCurrentUser()
  
 
  
-  fetch(`http://localhost:3000/users?${activeuser.id}`)
+  fetch(`https://localhost:7111/api/Customer/GET_CUSTOMER${activeuser.id}`)
       .then(response => response.json())
       .then(user => {
           document.getElementById('username').value = activeuser.name;
@@ -64,7 +64,7 @@ function getCurrentUser()
           ...(updatedPassword && { password: updatedPassword }) 
       };
 
-      fetch(`http://localhost:3000/users/${activeuser.id}`, {
+      fetch(`https://localhost:7111/api/Customer/UPDATE_CUSTOMER${activeuser.id}`, {
           method: 'PUT',
           headers: {
               'Content-Type': 'application/json'

@@ -2,7 +2,7 @@
 
 namespace DVDRental.DTOs.RequestDTO
 {
-    public class DVD_RequestDTO
+    public class RequestDTO
     {
         public int ID { get; set; }
         public int customerId { get; set; }

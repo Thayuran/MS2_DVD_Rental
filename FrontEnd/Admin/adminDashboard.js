@@ -17,9 +17,12 @@ document.addEventListener("DOMContentLoaded", function() {
   const dvdTableBody = document.querySelector('#dvdTable tbody');
   
   const apiUrl = 'http://localhost:3000/dvds';
-  const categoriesApiUrl = 'http://localhost:3000/categories';
-  const usersUrl="http://localhost:3000/users";
+//   const categoriesApiUrl = 'http://localhost:3000/categories';
+//   const usersUrl="http://localhost:3000/users";
   const rentsUrl="http://localhost:3000/rentals";
+
+  const categoriesApiUrl = 'https://localhost:7111/api/Categories';
+  const usersUrl="https://localhost:7111/api/Customer/GET_ALL_CUSTOMERS";
 
   if (showdvdBtn && dvdModal) {
       showdvdBtn.addEventListener("click", function() {
@@ -608,20 +611,33 @@ document.querySelectorAll(".navList").forEach(function(element) {
         const row = document.createElement('tr');
 
         const idCell = document.createElement('td');
-        idCell.textContent =cus.id;
+        idCell.textContent =cus.customerId;
         row.appendChild(idCell);
   
         const nameCell = document.createElement('td');
-        nameCell.textContent = cus.name;
+        nameCell.textContent = cus.fullName;
         row.appendChild(nameCell);
   
-        const phoneCell = document.createElement('td');
-        phoneCell.textContent =cus.phone;
-        row.appendChild(phoneCell);
-  
+        const emailCell = document.createElement('td');
+        emailCell.textContent = cus.email;
+        row.appendChild(emailCell);
+
         const addressCell = document.createElement('td');
         addressCell.textContent = cus.address;
         row.appendChild(addressCell);
+
+        const phoneCell = document.createElement('td');
+        phoneCell.textContent =cus.phoneNumber;
+        row.appendChild(phoneCell);
+  
+        const dateCell = document.createElement('td');
+        dateCell.textContent = cus.joinedDate;
+        row.appendChild(dateCell);
+
+        const statuscell = document.createElement('INPUT');
+        statuscell.setAttribute("type", "radio");
+        statuscell.textContent = cus.action;
+        row.appendChild(statuscell);
   
         const actionCell = document.createElement('td');
         const deleteButton = document.createElement('button');

@@ -121,6 +121,81 @@ namespace DVDRental.Repositories
                 return null;
             }
         }
-    
+
+
+        public async Task UpdateAsync(MovieDvd entity)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                // Update DVD details
+                string query = @"UPDATE DVDs 
+                         SET Title = @Title, Director = @Director, ReleaseDate = @ReleaseDate, AvailableCopies = @Copies, ImagePath = @ImagePath
+                         WHERE Id = @Id";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Id", entity.ID);
+                cmd.Parameters.AddWithValue("@Title", entity.Title);
+                cmd.Parameters.AddWithValue("@Director", entity.Director);
+                cmd.Parameters.AddWithValue("@ReleaseDate", entity.ReleaseDate);
+                cmd.Parameters.AddWithValue("@Copies", entity.Copies);
+                cmd.Parameters.AddWithValue("@ImagePath", entity.ImagePath ?? (object)DBNull.Value);
+
+                conn.Open();
+                await cmd.ExecuteNonQueryAsync();
+
+                string deleteQuery = @"DELETE FROM DVD_Categories 
+                               WHERE DVDId = @DVDId AND CategoryId NOT IN (
+                                   SELECT CategoryId FROM Categories WHERE Name IN @CategoryNames
+                               )";
+
+                SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn);
+                deleteCmd.Parameters.AddWithValue("@DVDId", entity.ID);
+                deleteCmd.Parameters.AddWithValue("@CategoryNames", string.Join(",", entity.Categories.Select(c => c.CategoryName)));
+                await deleteCmd.ExecuteNonQueryAsync();
+
+
+                foreach (var category in entity.Categories)
+                {
+                    var existingCategory = await _categoryRepository.GetByNameAsync(category.CategoryName);
+                    if (existingCategory == null)
+                    {
+
+                        existingCategory = new Categories { CategoryName = category.CategoryName };
+                        await _categoryRepository.AddAsync(existingCategory);
+                    }
+
+
+                    string linkQuery = @"IF NOT EXISTS (SELECT 1 FROM DVD_Categories WHERE DVDId = @DVDId AND CategoryId = @CategoryId)
+                                 INSERT INTO DVD_Categories (DVDId, CategoryId) VALUES (@DVDId, @CategoryId)";
+
+                    SqlCommand linkCmd = new SqlCommand(linkQuery, conn);
+                    linkCmd.Parameters.AddWithValue("@DVDId", entity.ID);
+                    linkCmd.Parameters.AddWithValue("@CategoryId", existingCategory.CategoryID);
+                    await linkCmd.ExecuteNonQueryAsync();
+                }
+            }
+        }
+
+
+        public async Task DeleteAsync(string dvdId)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+
+
+                string deleteCategoryLinkQuery = "DELETE FROM DVD_Categories WHERE DVDId = @DVDId";
+                SqlCommand deleteCategoryLinkCmd = new SqlCommand(deleteCategoryLinkQuery, conn);
+                deleteCategoryLinkCmd.Parameters.AddWithValue("@DVDId", dvdId);
+                await deleteCategoryLinkCmd.ExecuteNonQueryAsync();
+
+
+                string deleteDvdQuery = "DELETE FROM DVDs WHERE Id = @DVDId";
+                SqlCommand deleteDvdCmd = new SqlCommand(deleteDvdQuery, conn);
+                deleteDvdCmd.Parameters.AddWithValue("@DVDId", dvdId);
+                await deleteDvdCmd.ExecuteNonQueryAsync();
+            }
+        }
+
     }
 }
