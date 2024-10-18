@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
+  },
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "frontend",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\"&&exit",
+    "data":"json-server  --watch db.json"
+  },
+  "author": "",
+  "license": "ISC"
+}

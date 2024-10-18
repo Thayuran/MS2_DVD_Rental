@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVD Rent Master</title>
+    <!-- custom css link  -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./media.css">
+    <!-- custom css link  -->
+    <link rel="shortcut icon" href="images\favicon.ico">
+</head>
+
+<body>
+    <!-- navbar  -->
+     <header>
+        <div class="background-image"></div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="./images/logo1.png" alt="brand">
+            </div>
+
+            <ul class="nav-list ">
+                <li><a href="index.html" class="list-item">Home</a></li>
+                <li><a href="about_us.html" class="list-item">About us</a></li>
+                <li><a href="movielist.html" class="list-item">Movie Lists</a></li>
+                <li><button  class="list-item contact login-btn">Login</button></li>
+                <!-- <li><button  class="list-item contact signin-btn">Login</button></li> -->
+                <!-- <li><button id="signup-btn" >Signup</button></li> -->
+                <!-- <button class="login-btn">LOG IN</button>  -->
+                
+            </ul>
+            <div class="mobile-menu" onclick="showMenu()">
+                <div class="line line1 "></div>
+                <div class="line line2 "></div>
+                <div class="line line3 "></div>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar  -->
+</header>
+    <!-- header  -->
+    <div class="blur-bg-overlay"></div>
+    <section class="header">
+        <div class="container">
+            <div class="header-info">
+                <h1 class="header-headline">your perfect movie waiting for you </h1>
+                <p class="header-subtitle">
+                    we help you get your favourite movie with us.     
+                </p>
+
+                <a href="movielist.html" class="cta">Explore Now</a>
+            </div>
+        </div>
+    </section>
+    <!-- header  -->
+     <div class="blur-bg-overlay"></div>
+
+<!-- -----------------------------login modal------------------------------------------------ -->
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+    <div class="wrapper">
+        <button class="close-button" aria-label="Close alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+        </button>
+      <header>Login Form</header>
+    
+      <form id="loginForm">
+        <div class="field name">
+          <div class="input-area">
+            <label for="usernameLogin">Username:</label>
+            <input type="text" id="usernameLogin" placeholder="User Name">
+            <i class="icon fas fa-envelope"></i>
+            <i class="error error-icon fas fa-exclamation-circle"></i>
+          </div>
+          <div class="error error-txt">Username can't be blank</div>
+        </div>
+
+        <div class="field password">
+          <div class="input-area">
+            <label for="passwordLogin">Password:</label>
+            <input type="password" id="passwordLogin" placeholder="Password">
+            <i class="icon fas fa-lock"></i>
+            <i class="error error-icon fas fa-exclamation-circle"></i>
+          </div>
+          <div class="error error-txt">Password can't be blank</div>
+        </div>
+
+        <button id="login" type="button">Login</button>
+        <div class="pass-txt" id="fotgotpwlink"><a href="#">Forgot password?</a></div>
+        
+        <!-- <input type="submit" value="Login"> -->
+      </form>
+      <div class="signup-txt">Don't you have an account  then signin here</div>
+        <!-- <button class="signup-link">Signup now</button> <a>Signup now</a></div>  -->
+        <button id="signup-btn">Signup now</button> 
+    </div>
+    </div>
+</div>
+
+<!------------------------------- signup -------------------------------------------------->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+        <div class="wrapper">
+            <button class="close-button" aria-label="Close alert" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+            </button>
+          <header>Signup Form</header>
+
+          <form id="signupForm">
+            <div class="field id">
+                <div class="input-area">
+                  <input type="hidden" id="customer-id">
+                  <i class="icon fas fa-envelope"></i>
+                  <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div>
+              </div>
+
+
+            <div class="field name">
+                <div class="input-area">
+                    <label for="usernameSignup">Name:</label>
+                  <input type="text" id="usernameSignup" placeholder="Customer Name" required>
+                  <i class="icon fas fa-envelope"></i>
+                  <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div>
+                <div class="error error-txt">Name can't be blank</div>
+              </div>
+
+            <!-- <div class="field email">
+                <div class="input-area">
+                  <input type="text" placeholder="Email Address">
+                  <i class="icon fas fa-envelope"></i>
+                  <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div>
+                <div class="error error-txt">Email can't be blank</div>
+              </div> -->
+
+            <div class="field password">
+              <div class="input-area">
+                <label for="passwordSignup">Password:</label>
+                <input type="password" id="passwordSignup" placeholder="Password" required>
+                <i class="icon fas fa-lock"></i>
+                <i class="error error-icon fas fa-exclamation-circle"></i>
+              </div>
+              <div class="error error-txt">Password can't be blank</div>
+            </div>
+
+            <div class="field confirmpassword">
+                <div class="input-area">
+                    <label for="confirmpassword">Confirmed Password:</label>
+                  <input type="password" id="confirmpassword"  placeholder="Confimed Password" required>
+                  <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div>
+                <div class="error error-txt">Confirm Password can't be blank</div>
+              </div>
+              <button id="signup" type="button">Signup Now</button>
+        </form>
+          <!-- <div class="sign-txt">I have an account?</div>
+          <button  class="loginbtn">Login</button>  -->
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+
+<!--------------------- Forgot Password --------------------------------------------->
+<div class="modal" id="forgotModal">
+    <div class="modal-content">
+    <div class="wrapper">
+        <button class="close-button" aria-label="Close alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+        </button>
+      <header>Forgot Password</header>
+    
+      <form id="forgotForm">
+        <div class="field name">
+          <div class="input-area">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="User Name">
+            <i class="icon fas fa-envelope"></i>
+            <i class="error error-icon fas fa-exclamation-circle"></i>
+          </div>
+          <div class="error error-txt">Username can't be blank</div>
+        </div>
+
+        <div class="field password">
+          <div class="input-area">
+            <label for="forgotpassword"> Create New Password:</label>
+            <input type="password" id="forgotpassword" placeholder="Forgot Password">
+            <i class="icon fas fa-lock"></i>
+            <i class="error error-icon fas fa-exclamation-circle"></i>
+          </div>
+          <div class="error error-txt">Password can't be blank</div>
+        </div>
+
+        <div class="field password2">
+            <div class="input-area">
+              <label for="forgotcfpassword"> Confirmed New Password:</label>
+              <input type="password" id="forgotcfpassword" placeholder="Confimed Password">
+              <i class="icon fas fa-lock"></i>
+              <i class="error error-icon fas fa-exclamation-circle"></i>
+            </div>
+            <div class="error error-txt">Confiremd Password can't be blank</div>
+        </div>
+        
+        <button id="fgtpwd" type="button">Forgot Password</button>
+      </form>
+    </div>
+    </div>
+</div>
+
+ <!-- ------------------------------------------------------------------------------->
+    <!-- search box -->
+    <form>
+        <div class="container">
+            <div class="input">
+                <input type="text" placeholder="location">
+                
+            </div>
+            <div class="input">
+                <input type="text" placeholder="type">
+                
+            </div>
+            <div class="input">
+                <input type="text" placeholder="budget">
+               
+            </div>
+            <div class="input search">
+                <input type="submit" value="search now">
+
+            </div>
+        </div>
+    </form>
+    <!-- search box -->
+
+    <!-- product  -->
+    <section id="product">
+        <div class="product-info">
+            <h2 class="product-title">
+                our Trending Movies
+            </h2>
+
+            <a href="movielist.html" class="product-btn">
+                Explore All
+                <!-- <img src="./images/arrow.svg" alt=""> -->
+            </a>
+        </div>
+        <div class="container">
+            <div class="product-card">
+                <img src="./images/bigil.jpeg" alt="" class="product-img">
+                <div class="card-info">
+
+                    <div class="card-info-content">
+                        <!-- <img src="./images/location.svg" alt=""> -->
+                        <p class="loaction-name"> 
+                            <li>Bigil</li>
+                        </p>
+                            <!-- <li> `${dvd.title} - ${dvd.genre} - ${dvd.director} - ${dvd.releaseDate}`</li></p> -->
+                    </div>
+                    <div class="card-info-content">
+                        <div class="content">
+                            <!-- <img src="./images/bed.svg" alt=""> -->
+                            <p>Action</p>
+                        </div>
+                        <div class="content">
+                            <!-- <img src="./images/size.svg" alt=""> -->
+                            <p>Atlee</p>
+                        </div>
+                        <div class="content">
+                            <!-- <img src="./images/area.svg" alt=""> -->
+                            <p>2022</p>
+                        </div>
+                    </div>
+                    <div class="price">
+                        <p>Rs.100</p>
+                        <a href="" class="booking-btn">Book Now</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="./images/mankatha.jpg" alt="" class="product-img">
+                <div class="card-info">
+
+                    <div class="card-info-content">
+                        <!-- <img src="./images/location.svg" alt=""> -->
+                        <p class="loaction-name">Mankatha</p>
+                    </div>
+                    <div class="card-info-content">
+                        <div class="content">
+                            <!-- <img src="./images/bed.svg" alt=""> -->
+                            <p>Action</p>
+                        </div>
+                        <div class="content">
+                            <!-- <img src="./images/size.svg" alt=""> -->
+                            <p>Venkat prabrbu</p>
+                        </div>
+                        <div class="content">
+                            <!-- <img src="./images/area.svg" alt=""> -->
+                            <p>2018</p>
+                        </div>
+                    </div>
+                    <div class="price">
+                        <p>Rs.80</p>
+                        <a href="" class="booking-btn">Book Now</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="./images/Maharaja.jpg" alt="" class="product-img">
+                <div class="card-info">
+
+                    <div class="card-info-content">
+                        <!-- <img src="./images/location.svg" alt=""> -->
+                        <p class="loaction-name">Maharaja</p>
+                    </div>
+                    <div class="card-info-content">
+                        <div class="content">
+                            <!-- <img src="./images/bed.svg" alt=""> -->
+                            <p>Thriller</p>
+                        </div>
+                        <div class="content">
+                            <!-- <img src="./images/size.svg" alt=""> -->
+                            <p>Dhanush</p>
+                        </div>
+                        <div class="content">
+                            <!-- <img src="./images/area.svg" alt=""> -->
+                            <p>2024</p>
+                        </div>
+                    </div>
+                    <div class="price">
+                        <p>Rs.150</p>
+                        <a href="" class="booking-btn">Book Now</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="main1.js"></script>
+</body>
+
+</html>

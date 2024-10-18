@@ -1,0 +1,256 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVD Rent Services</title>
+    <!-- custom css link  -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./media.css">
+    <!-- custom css link  -->
+    <link rel="shortcut icon" href="images\favicon.ico">
+</head>
+
+<body>
+    <!-- navbar  -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="./images/logo1.png" alt="brand">
+            </div>
+
+            <ul class="nav-list">
+                <li><a href="index.html" class="list-item">Home</a></li>
+                <li><a href="movielist.html" class="list-item">Movie Lists</a></li> 
+                <li><button  id="loginButton" class="login-btn">Login</button></li> 
+            </ul>
+
+            <div id="profileSection" style="display:none;">
+                <span id="profileIcon"><img src="./images/user.jpg" alt="admin"  width="30"></span>
+                <span id="currentUserName"> </span>
+                <div id="profileDropdown" style="display: none;">
+                    <!-- <a href="Customer/CustomerDashboard.html">Dashboard</a> -->
+                    <button id="routedash">Dashboard</button>
+                    <button id="logoutButton">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar  -->
+
+<!-- -----------------------------login modal------------------------------------------------ -->
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+    <div class="wrapper">
+        <button class="close-button" aria-label="Close alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+        </button>
+      <header>Login Form</header>
+    
+      <form id="loginForm">
+        <div class="field name">
+          <div class="input-area">
+            <label for="usernameLogin">Username:</label>
+            <input type="text" id="usernameLogin" placeholder="User Name">
+          </div>
+          <div class="error error-txt"></div>
+        </div>
+
+        <div class="field password">
+          <div class="input-area">
+            <label for="passwordLogin">Password:</label>
+            <input type="password" id="passwordLogin" placeholder="Password">
+          </div>
+          <div class="error error-txt"></div>
+        </div>
+        <button id="login" type="button">Login</button>
+        <div class="pass-txt" id="fotgotpwlink"><a href="#">Forgot password?</a></div>
+      </form>
+      <div class="signup-txt">don't you have an account then click here </div>
+        <button id="signup-btn">Signup now</button> 
+    </div>
+    </div>
+</div>
+
+<!------------------------------- signup -------------------------------------------------->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+        <div class="wrapper">
+            <button class="close-button" aria-label="Close alert" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+            </button>
+          <header>Signup Form</header>
+
+          <form id="signupForm">
+            <div class="field id">
+                <div class="input-area">
+                  <input type="hidden" id="customer-id">
+                </div>
+              </div>
+
+            <div class="field name">
+                <div class="input-area">
+                    <label for="usernameSignup">Name:</label>
+                  <input type="text" id="usernameSignup" placeholder="Customer Name" required>
+                </div>
+                <div class="error error-txt"></div>
+              </div>
+
+              <div class="field phone">
+                  <div class="input-area">
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" id="phone" placeholder="Phone Number" required>
+                  </div>
+                  <div class="error error-txt"></div>
+                </div>
+  
+              <div class="field address">
+                  <div class="input-area">
+                    <label for="address">Customer Address:</label>
+                    <input type="text" id="address" placeholder="Customer Address">
+                  </div>
+                  <div class="error error-txt"></div>
+              </div>
+          
+            <div class="field password">
+              <div class="input-area">
+                <label for="passwordSignup">Password:</label>
+                <input type="password" id="passwordSignup" placeholder="Password" required>
+              </div>
+              <div class="error error-txt"></div>
+            </div>
+
+            <div class="field confirmpassword">
+                <div class="input-area">
+                    <label for="confirmpassword">Confirmed Password:</label>
+                  <input type="password" id="confirmpassword"  placeholder="Confimed Password" required>
+                </div>
+                <div class="error error-txt"></div>
+              </div>
+              <button id="signup" type="button">Signup Now</button>
+        </form>
+        </div>
+    </div>
+    </div>
+<!-- </div> -->
+
+<!-- rent modal -->
+<div id="rentModal" class="modal">
+    <div class="modal-content">
+        <!-- <span class="close-btn">&times;</span> -->
+        <div class="wrapper">
+          <button class="close-button" aria-label="Close alert" type="button" data-close>
+              <span aria-hidden="true">&times;</span>
+          </button>
+        <header>Rent Request</header>
+        <h3>User: <span id="rentUserName"></span></h3>
+        <h3>DVD: <span id="rentDvdName"></span></h3>
+        <h3>Price: Rs.<span id="rentDvdPrice"></span></h3>
+        <h4 class="Warning">Reminder: Collect the DVD within 1 day. A deposit of Rs. 200 is required.</h4>
+        <button id="requestRentButton">Request Sent</button>
+        </div>
+    </div>
+</div>
+<!--  -->
+
+<!--------------------- Forgot Password --------------------------------------------->
+<div class="modal" id="forgotModal">
+    <div class="modal-content">
+    <div class="wrapper">
+        <button class="close-button" aria-label="Close alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+        </button>
+      <header>Forgot Password</header>
+    
+      <form id="forgotForm">
+        <div class="field name">
+          <div class="input-area">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="User Name">
+          </div>
+          <div class="error error-txt"></div>
+        </div>
+
+        <div class="field password">
+          <div class="input-area">
+            <label for="forgotpassword"> Create New Password:</label>
+            <input type="password" id="forgotpassword" placeholder="Forgot Password">
+          </div>
+          <div class="error error-txt"></div>
+        </div>
+
+        <div class="field password2">
+            <div class="input-area">
+              <label for="forgotcfpassword"> Confirmed New Password:</label>
+              <input type="password" id="forgotcfpassword" placeholder="Confimed Password">
+            </div>
+            <div class="error error-txt"></div>
+        </div>
+        <button id="fgtpwd" type="button">Forgot Password</button>
+      </form>
+    </div>
+    </div>
+</div>
+
+ <!-- ------------------------------------------------------------------------------->
+    <!-- product  -->
+    <section id="product">
+        <div class="product-info">
+            <h3 class="product-title">
+                List of Movies
+            </h3>
+        </div>
+        
+        <div class="filter">
+            <select id="dropdown">
+                <option value="all">All</option>
+                <option value="title">Title</option>
+                <option value="genre">Genre</option>
+                <option value="director">Director</option>
+            </select>
+                <input type="text" name="searchtxt" id="searchtxt" placeholder="Search.....">
+                <button class="btn" id="search-dvd-btn"><ion-icon name="search-outline"></ion-icon> Search</button>
+        </div> 
+        <div class="container" id="dvd-container">
+        </div>
+    </section>
+    <!-- pagination -->
+
+    <div class="container">
+        <button class="button" id="startBtn" disabled>
+            <ion-icon name="play-back-circle-outline"></ion-icon>
+        </button>
+        <button class="button prevNext" id="prev" disabled>
+            <ion-icon name="play-skip-back-circle-outline"></ion-icon>
+        </button>
+  
+        <div class="links">
+          <a href="#" class="link active">1</a>
+          <a href="#" class="link">2</a>
+          <a href="#" class="link">3</a>
+          <a href="#" class="link">4</a>
+          <a href="#" class="link">5</a>
+        </div>
+  
+        <button class="button prevNext" id="next">
+            <ion-icon name="play-circle-outline"></ion-icon>
+        </button>
+        <button class="button" id="endBtn">
+            <ion-icon name="play-forward-circle-outline"></ion-icon>
+        </button>
+      </div>
+
+      <footer>
+        <small>
+          Copyright © 2024 DVD Rent Master. All Rights Reserved.
+        </small>
+      </footer>
+
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      <script src="movielist.js"></script>
+    <script src="./pagination.js"></script>
+</body>
+
+</html>
