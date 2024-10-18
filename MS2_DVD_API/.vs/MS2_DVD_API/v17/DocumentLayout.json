@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_rental\\ms2_dvd_api\\ms2_dvd_api\\irepository\\imovierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\irepository\\imovierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_rental\\ms2_dvd_api\\ms2_dvd_api\\repository\\movierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\repository\\movierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_rental\\ms2_dvd_api\\ms2_dvd_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_rental\\ms2_dvd_api\\ms2_dvd_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_rental\\ms2_dvd_api\\ms2_dvd_api\\controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_rental\\ms2_dvd_api\\ms2_dvd_api\\repository\\movierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\repository\\movierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_rental\\ms2_dvd_api\\ms2_dvd_api\\irepository\\imovierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|solutionrelative:ms2_dvd_api\\irepository\\imovierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C746CCE6-1123-4F3A-8B02-8C7F7E2461F6}|MS2_DVD_API\\MS2_DVD_API.csproj|c:\\users\\asus\\desktop\\backend\\ms2_dvd_rental\\ms2_dvd_api\\ms2_dvd_api\\entity\\movies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,11 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MovieController.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Controllers\\MovieController.cs",
               "RelativeDocumentMoniker": "MS2_DVD_API\\Controllers\\MovieController.cs",
@@ -44,7 +52,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "ImovieRepository.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\IRepository\\ImovieRepository.cs",
               "RelativeDocumentMoniker": "MS2_DVD_API\\IRepository\\ImovieRepository.cs",
@@ -58,13 +66,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "MovieRepository.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Repository\\MovieRepository.cs",
               "RelativeDocumentMoniker": "MS2_DVD_API\\Repository\\MovieRepository.cs",
               "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Repository\\MovieRepository.cs",
               "RelativeToolTip": "MS2_DVD_API\\Repository\\MovieRepository.cs",
-              "ViewState": "AQIAAJ0AAAAAAAAAAAAwwCQAAAAkAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-17T14:40:15.52Z",
               "IsPinned": true,
@@ -72,7 +80,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\appsettings.json",
+              "RelativeDocumentMoniker": "MS2_DVD_API\\appsettings.json",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\appsettings.json",
+              "RelativeToolTip": "MS2_DVD_API\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-17T16:09:32.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Program.cs",
+              "RelativeDocumentMoniker": "MS2_DVD_API\\Program.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Program.cs",
+              "RelativeToolTip": "MS2_DVD_API\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T16:06:36.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{26341fe2-71dd-46fd-bb1b-2e51a92a0d64}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Movies.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\backend\\MS2_DVD_Rental\\MS2_DVD_API\\MS2_DVD_API\\Entity\\Movies.cs",
               "RelativeDocumentMoniker": "MS2_DVD_API\\Entity\\Movies.cs",

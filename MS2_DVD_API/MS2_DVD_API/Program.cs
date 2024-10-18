@@ -23,11 +23,10 @@ namespace MS2_DVD_API
             builder.Services.AddSingleton<ICustomerRepository>(provider => new CustomerRepository(connectionString));
             builder.Services.AddSingleton<ImovieRepository>(provider => new MovieRepository(connectionString));
 
-            var dbInitializer = new DatabaseInitializer(connectionString);
-            dbInitializer.Initialize();
-
             var app = builder.Build();
 
+            var dbInitializer = new DatabaseInitializer(connectionString);
+            dbInitializer.Initialize();
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
