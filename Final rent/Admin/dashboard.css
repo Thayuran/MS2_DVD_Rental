@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+}
+
+.logo h2 {
+    text-align: center;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.nav-links li {
+    margin-bottom: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: background 0.3s;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+.main-content {
+    margin-left: 270px;
+    padding: 20px;
+    width: 100%;
+}
+
+header {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.content-section {
+    margin-top: 20px;
+}
+
+
+/* toast */
+/* Toast notification styles */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+/* 
+.notifications {
+    position: fixed;
+    top: 30px;
+    right: 20px;
+  }
+  .notifications :where(.toast, .column) {
+    display: flex;
+    align-items: center;
+  }
+  .notifications .toast {
+    width: 400px;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    border-radius: 4px;
+    padding: 16px 17px;
+    margin-bottom: 10px;
+    background: var(--light);
+    justify-content: space-between;
+    animation: show_toast 0.3s ease forwards;
+  } */
+
+  #customAlert {
+    display: none;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #80b0dd;
+    color: #3286e6;
+    padding: 15px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+#customAlert button {
+    background: #1855b1;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+#customAlert button:hover {
+    background: #b8deee;
+}
+/* admin style */

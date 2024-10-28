@@ -1,0 +1,440 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f9f9fb;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #020226;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center; /* Center the contents of the navbar */
+  align-items: center;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 100px;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.logo img {
+  height: 120px;
+  transition: transform 0.3s;
+  margin-bottom: 18%;
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  font-size: 20px;
+  margin-bottom: 2%;
+}
+
+.nav-list .list-item {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.nav-list .list-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #f8f3f3;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-list .list-item:hover::after {
+  transform: scaleX(1);
+}
+
+.login-btn {
+  padding: 0.4rem 1.2rem;
+  border: none;
+  background-color: #db6c0a;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.login-btn:hover {
+  background-color: #d18335;
+  transform: translateY(-3px);
+}
+
+/* Profile Section */
+#profileSection {
+  align-items: center;
+  gap: 0.8rem;
+  color: #fff;
+}
+
+#profileIcon img {
+  border-radius: 50%;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+#profileIcon img:hover {
+  transform: scale(1.1);
+}
+
+#profileDropdown {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  gap: 0.1em;
+  background-color: #909093;
+  border-radius: 8px;
+  margin-top: 2px;
+  
+}
+#profileDropdown button {
+  background: none;
+  border: none;
+  color: #040b46;
+  cursor: pointer;
+}
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full width */
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+  top: 10%;
+  left: 38%;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  animation: fadeIn 0.3s ease-out;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close-button {
+  position: absolute;
+  padding: 12px;
+  top: 2rem;
+  right: 2rem;
+  height: 35px;
+  width: 40px;
+  background: none;
+  border: none;
+  border-radius: 5px;
+  color: #020338;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button:hover {
+  color: #e9e9ec;
+}
+/* Form Styles */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: #ffffff; /* White background for contrast */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+label {
+  font-size: 18px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 2%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f1f3f6;
+  color: #333;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+button {
+  padding: 0.75rem;
+  margin-top: 10px;
+  border: none;
+  background-color: #061452;
+  color: #fff;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #0a046e;
+  transform: translateY(-3px);
+}
+.pass-txt {
+  margin-top: 2%;
+}
+
+/* Filter Section */
+.filter {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1%;
+}
+
+#dropdown,
+#searchtxt {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9fb;
+  color: #333;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  font-size: 1rem;
+  width: 120px;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  background-color: #061452;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  background-color: #0a046e;
+  transform: translateY(-2px);
+}
+
+/* DVD Container */
+#dvd-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.product-info .product-title {
+  margin-top: 2%;
+  text-align: center;
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Pagination */
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.button {
+  background: none;
+  border: none;
+  color: #040a39;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #1f1f2e;
+  color: #fff;
+  margin-top: auto;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter {
+    flex-direction: column;
+  }
+}
+/* Product Card Style */
+.product-card {
+  background-color: #d0cbcb;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  max-width: 250px;
+  margin: auto;
+  height: 520px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Image */
+.product-img {
+  width: 250px;
+  height: 300px;
+  border: 5px solid rgb(2, 4, 56);
+  border-bottom: 1px solid #eee;
+}
+
+/* Card Information */
+.card-info {
+  padding: 1rem;
+}
+
+.card-info-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.card-info-content .content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Movie Title */
+.location-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f0101;
+}
+
+/* Movie Genre, Director, and Release Date */
+.content p {
+  font-size: 1rem;
+  color: #040930;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Available Copies */
+#availableCopies {
+  font-weight: 500;
+  color: #030334;
+}
+
+/* Price and Rent Button */
+.price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.price p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.booking-btn {
+  background-color: #060b2f;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.booking-btn:hover {
+  background-color: #040878;
+}
+
+.Warning {
+  color: rgb(252, 247, 247);
+  background-color: rgb(184, 20, 8);
+  font-weight: bold;
+  font-size: 15px;
+  padding: 2px 2px;
+  border-radius: 5px;
+}
+#currentUserName {
+  font-size: 25px;
+}
