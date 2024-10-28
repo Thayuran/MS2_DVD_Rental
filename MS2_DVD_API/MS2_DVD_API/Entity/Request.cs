@@ -1,0 +1,7 @@
+﻿namespace MS2_DVD_API.Entity
+{
+    public class Request
+    {
+       
+    }
+}
