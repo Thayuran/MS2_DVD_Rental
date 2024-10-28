@@ -1,4 +1,5 @@
 ﻿using DVDRental.DTOs.RequestDTO;
+using DVDRental.DTOs.ResponseDTO;
 using DVDRental.Entities;
 using DVDRental.Repositories;
 using DVDRental.Services;
@@ -19,19 +20,34 @@ namespace DVDRental.Controllers
             _adminDvdService = adminDvdService;
         }
 
-        [HttpGet]
-        public IActionResult GetAll()
+        //login credential
+        [HttpPost("login")]
+        /*public IActionResult AdminLogin(AdminCredentials adminCredentials)
         {
-            var dvds= _adminDvdService.GetAllDVDsAsync();
+            var result = _adminDvdService.Login(adminCredentials);
+            if (result)
+                return Ok("Login Successful");
+            return Unauthorized("Invalid Credentials");
+        }*/
+
+
+
+
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var dvds=await _adminDvdService.GetAllDVDsAsync();
             if (dvds == null)
                 return NotFound();
             return Ok(dvds);
         }
 
-        [HttpGet("{dvdId}")]
-        public IActionResult GetById(string Id)
+        [HttpGet("dvdId")]
+        public async Task<IActionResult> GetById(string Id)
         {
-            var dvd = _adminDvdService.GetDVDByIdAsync(Id);
+            var dvd = await _adminDvdService.GetDVDByIdAsync(Id);
             if (dvd == null)
                 return NotFound();
             return Ok(dvd);
@@ -43,5 +59,29 @@ namespace DVDRental.Controllers
             _adminDvdService.AddDVDAsync(movie);
             return Ok();
         }
+
+
+
+        //categories
+       /* [HttpGet("category/{categoryId}")]*/
+       /* public async Task<ActionResult<List<DVDResponseDTO>>> GetDVDsByCategory(int categoryId)
+        {
+            var dvds = await _adminDvdService.GetDVDsByCategoryAsync(categoryId);
+            return Ok(dvds);
+        }*/
+/*
+        [HttpPost("{dvdId}/categories/{categoryId}")]
+        public async Task<IActionResult> AddDVDToCategory(string dvdId, int categoryId)
+        {
+            await _adminDvdService.AddDVDToCategoryAsync(dvdId, categoryId);
+            return NoContent();
+        }*/
+
+        /*[HttpDelete("{dvdId}/categories/{categoryId}")]
+        public async Task<IActionResult> RemoveDVDFromCategory(string dvdId, int categoryId)
+        {
+            await _adminDvdService.RemoveDVDFromCategoryAsync(dvdId, categoryId);
+            return NoContent();
+        }*/
     }
 }

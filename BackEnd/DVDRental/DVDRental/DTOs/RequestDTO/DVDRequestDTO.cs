@@ -4,7 +4,7 @@
     {
 
         public string Title { get; set; }
-        public List<int> CategoryIds { get; set; }=new List<int>(){ };
+        public int CategoryId { get; set; }
         public DateTime ReleaseDate { get; set; }
         public string Director { get; set; }
         public int Copies { get; set; }

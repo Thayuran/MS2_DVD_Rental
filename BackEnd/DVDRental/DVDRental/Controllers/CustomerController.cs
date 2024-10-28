@@ -17,6 +17,23 @@ namespace DVDRental.Controllers
         {
             _customerService = customerService;
         }
+/*
+        [HttpPost("register")]
+        public IActionResult Register([FromBody] UserRegistrationDto userDto)
+        {
+            _customerService.Register(userDto);
+            return Ok("User registered successfully");
+        }
+
+
+        [HttpPost("login")]
+        public IActionResult UserLogin([FromBody] UserCredentials userCredentials)
+        {
+            var result = _userService.Login(userCredentials);
+            if (result)
+                return Ok("Login Successful");
+            return Unauthorized("Invalid Credentials");
+        }*/
 
 
         [HttpGet("GET_ALL_CUSTOMERS")]

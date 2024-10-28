@@ -20,19 +20,9 @@ namespace DVDRental.Data
 
                 var command = connection.CreateCommand();
                 command.CommandText = @"
-                   IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'DVDs')
-                                BEGIN
-                                    CREATE TABLE DVDs(
-                                        ID VARCHAR(8) PRIMARY KEY,
-                                        Title VARCHAR(50) NOT NULL,
-                                        Director VARCHAR(50) NOT NULL,
-                                        ReleaseDate DATE NOT NULL,
-                                        Copies INT NOT NULL,
-                                        ImagePath NVARCHAR(255) 
-                                    );
-                                END;
 
-                    IF NOT EXISTS (SELECT * FROM sys.tables WHERE name ='Categories')
+
+IF NOT EXISTS (SELECT * FROM sys.tables WHERE name ='Categories')
                                     BEGIN
                                         CREATE TABLE Categories (
                                             CategoryId INT PRIMARY KEY IDENTITY(1,1),
@@ -40,17 +30,21 @@ namespace DVDRental.Data
                                         );
                                     END;
 
-IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'DVD_Categories')
-                                     BEGIN
-                                        CREATE TABLE DVD_Categories (
-                                            DVDId VARCHAR(8) NOT NULL,
-                                            CategoryId INT NOT NULL,
-                                            PRIMARY KEY (DVDId,CategoryId),
-                                            FOREIGN KEY (DVDId) REFERENCES DVDs(ID) ON DELETE CASCADE,
-                                            FOREIGN KEY (CategoryId) REFERENCES Categories(CategoryId) ON DELETE CASCADE
-                                        );
-                                        END;
 
+
+                   IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'DVDs')
+                                BEGIN
+                                    CREATE TABLE DVDs(
+                                        ID VARCHAR(8) PRIMARY KEY,
+                                        Title VARCHAR(50) NOT NULL,
+                                        CategoryID INT NOT NULL,
+                                        Director VARCHAR(50) NOT NULL,
+                                        ReleaseDate DATE NOT NULL,
+                                        Copies INT NOT NULL,
+                                        ImagePath NVARCHAR(255) ,
+                                        FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryId),
+                                    );
+                                END;
 
                     IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Customer')
                                     BEGIN

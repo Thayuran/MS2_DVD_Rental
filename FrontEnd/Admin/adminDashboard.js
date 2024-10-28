@@ -17,12 +17,12 @@ document.addEventListener("DOMContentLoaded", function() {
   const dvdTableBody = document.querySelector('#dvdTable tbody');
   
   const apiUrl = 'http://localhost:3000/dvds';
-//   const categoriesApiUrl = 'http://localhost:3000/categories';
-//   const usersUrl="http://localhost:3000/users";
+   const categoriesApiUrl = 'http://localhost:3000/categories';
+  const usersUrl="http://localhost:3000/users";
   const rentsUrl="http://localhost:3000/rentals";
 
-  const categoriesApiUrl = 'https://localhost:7111/api/Categories';
-  const usersUrl="https://localhost:7111/api/Customer/GET_ALL_CUSTOMERS";
+//   const categoriesApiUrl = 'https://localhost:7111/api/Categories';
+//   const usersUrl="https://localhost:7111/api/Customer/GET_ALL_CUSTOMERS";
 
   if (showdvdBtn && dvdModal) {
       showdvdBtn.addEventListener("click", function() {
@@ -162,7 +162,7 @@ function fetchCategories() {
   }
 
 
-  function  filterDvdTable(dvds) {
+function filterDvdTable(dvds) {
     dvdTableBody.innerHTML = '';
 
     if (dvds.length === 0) {
@@ -189,7 +189,6 @@ function fetchCategories() {
     });
 }
 
-
 // window.onload =() => {
 //     fetchCategories();
 //     fetchDVDs();
@@ -200,7 +199,7 @@ function fetchCategories() {
 //   };
 
 
-  async function fetchDVDs() {
+async function fetchDVDs() {
     const response=await fetch(apiUrl);
     const dvds = await response.json();
       updateDVDTable(dvds);
@@ -215,7 +214,7 @@ async function fetchCustomers() {
   }
 
 
-  async function removeDVD(dvdId) {
+async function removeDVD(dvdId) {
 
     fetchDvdData().then(dvds => {
         const updatedDvds = dvds.filter(dvd => dvd.id !== parseInt(dvdId));
@@ -319,7 +318,7 @@ function updateDvdData(updatedDvds) {
     
     let price=80;
     // add new dvd
-    async function addDVD() {
+async function addDVD() {
       const title = document.getElementById('title').value;
       const director = document.getElementById('director').value;
       const releaseDate = document.getElementById('releaseDate').value;
@@ -357,7 +356,7 @@ function updateDvdData(updatedDvds) {
     } 
     }
     
- 
+showModal();
 // document.getElementById('edit-btn')
 function showModal(action, dvd = null) {
   if(action === 'edit'){
@@ -431,7 +430,7 @@ window.addEventListener('click', (event) => {
 
   // id generate
       let dvdIdanuto=1; 
-      function generateId() 
+function generateId() 
       {
         fetch(apiUrl)
             .then(response => response.json())
@@ -603,7 +602,7 @@ document.querySelectorAll(".navList").forEach(function(element) {
   });
 
 
-  function updateCustomerTable(customerdetails) {
+function updateCustomerTable(customerdetails) {
     const customerTableBody = document.getElementById('customerTable').querySelector('tbody');
     customerTableBody.innerHTML = '';
   
@@ -683,7 +682,7 @@ function hideAlert()
   const notificationTableBody = document.querySelector('#notificationTable tbody');
   const notificationCount = document.querySelectorAll('notification-Count');
 
-  function fetchNotifications() {
+function fetchNotifications() {
     fetch('http://localhost:3000/adminNotification')
         .then(response => response.json())
         .then(data => {

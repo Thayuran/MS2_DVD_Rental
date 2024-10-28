@@ -40,7 +40,8 @@ namespace DVDRental.Controllers
         public async Task<IActionResult> Add(CategoryRequestDTO category)
         {
             await _categoryService.AddAsync(category);
-            return CreatedAtAction(nameof(GetById), new { Name = category.Name }, category);
+            /*  return CreatedAtAction(nameof(GetById), new { CategoryName = category.Name }, category);*/
+            return Ok(category);
         }
 
        /* [HttpPut("{id}")]

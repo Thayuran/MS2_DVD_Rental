@@ -11,6 +11,55 @@ namespace DVDRental.Repositories
         {
             _connectionString = connectionString;
         }
+
+        //login
+       /* public void AddUser(UserRegistrationDto userDto)
+        {
+            using (var connection = _connectionHelper.GetConnection())
+            {
+                var query1 = "INSERT INTO UserCredentials (Username, Password) VALUES (@Username, @Password)";
+                var query2 = "INSERT INTO UserDetails (UserID, FirstName, LastName, Email, Address) VALUES (@UserID, @FirstName, @LastName, @Email, @Address)";
+
+                connection.Open();
+                using (var transaction = connection.BeginTransaction())
+                {
+                    var command1 = new SqlCommand(query1, connection, transaction);
+                    command1.Parameters.AddWithValue("@Username", userDto.Username);
+                    command1.Parameters.AddWithValue("@Password", userDto.Password);
+                    command1.ExecuteNonQuery();
+
+                    var userId = (int)command1.LastInsertedId;
+
+                    var command2 = new SqlCommand(query2, connection, transaction);
+                    command2.Parameters.AddWithValue("@UserID", userId);
+                    command2.Parameters.AddWithValue("@FirstName", userDto.FirstName);
+                    command2.Parameters.AddWithValue("@LastName", userDto.LastName);
+                    command2.Parameters.AddWithValue("@Email", userDto.Email);
+                    command2.Parameters.AddWithValue("@Address", userDto.Address);
+                    command2.ExecuteNonQuery();
+
+                    transaction.Commit();
+                }
+            }
+        }*/
+
+       /* public bool ValidateUser(UserCredentials userCredentials)
+        {
+            using (var connection = _connectionHelper.GetConnection())
+            {
+                var query = "SELECT COUNT(*) FROM UserCredentials WHERE Username = @Username AND Password = @Password";
+                var command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Username", userCredentials.Username);
+                command.Parameters.AddWithValue("@Password", userCredentials.Password);
+
+                connection.Open();
+                var count = (int)command.ExecuteScalar();
+                return count > 0;
+            }
+        }*/
+
+
+
         public async Task<Customer> AddCustomer(Customer customer)
         {
             string lastCusId = await GetLastCusIdAsync();
