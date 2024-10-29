@@ -29,14 +29,37 @@ namespace MS2_DVD_API.Data
                         FullName NVARCHAR(50) NOT NULL,
                         Email NVARCHAR(100) NOT NULL,
                         Address NVARCHAR(100) NOT NULL,
-                        AddressId INT NOT NULL,
                         PhoneNumber NVARCHAR(15) NOT NULL, 
                         JoinedDate DATETIME2 NOT NULL,
                         Action BIT NOT NULL
                     );
                 END;
            
-                
+                IF NOT EXISTS(SELECT * FROM sys.tables WHERE name = 'Movies')
+                BEGIN
+                    CREATE TABLE Movies(
+                        movieID INT PRIMARY KEY IDENTITY(1,1), 
+                        Title NVARCHAR(100) NOT NULL,
+                        Genre NVARCHAR(50) NOT NULL,
+                        Director NVARCHAR(100) NOT NULL,
+                        ReleaseDate DATETIME2 NOT NULL,   
+                        Cast NVARCHAR(MAX), 
+                        NoOfCopies INT NOT NULL
+                    );
+                        END;
+                IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Request')
+                BEGIN
+                    CREATE TABLE Request (
+                        RequestId INT PRIMARY KEY IDENTITY(1,1),
+                        CustomerId INT NOT NULL, 
+                        DvdId INT NOT NULL,
+                        RequestDate DATETIME2 NOT NULL,
+                        Action BIT NOT NULL,
+                        FOREIGN KEY (CustomerId) REFERENCES Customer(CustomerId)
+                        -- Add a foreign key for DvdId if you have a DVD table, e.g.:
+                        -- FOREIGN KEY (DvdId) REFERENCES Dvd(DvdId)
+                    );
+                END;
                 ";
                 command.ExecuteNonQuery();
             }
