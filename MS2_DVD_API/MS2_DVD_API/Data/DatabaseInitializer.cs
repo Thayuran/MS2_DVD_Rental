@@ -52,12 +52,11 @@ namespace MS2_DVD_API.Data
                     CREATE TABLE Request (
                         RequestId INT PRIMARY KEY IDENTITY(1,1),
                         CustomerId INT NOT NULL, 
-                        DvdId INT NOT NULL,
+                        MovieId INT NOT NULL,
                         RequestDate DATETIME2 NOT NULL,
                         Action BIT NOT NULL,
-                        FOREIGN KEY (CustomerId) REFERENCES Customer(CustomerId)
-                        -- Add a foreign key for DvdId if you have a DVD table, e.g.:
-                        -- FOREIGN KEY (DvdId) REFERENCES Dvd(DvdId)
+                        FOREIGN KEY (CustomerId) REFERENCES Customer(CustomerId),
+                        FOREIGN KEY (MovieId) REFERENCES Movies(MovieId)
                     );
                 END;
                 ";
