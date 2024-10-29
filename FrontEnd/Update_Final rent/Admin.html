@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVD Rent Master</title>
+    <!-- custom css link  -->
+    <link rel="stylesheet" href="./adminlogin.css">
+    <!-- <link rel="stylesheet" href="./media.css"> -->
+    <!-- custom css link  -->
+    <link rel="shortcut icon" href="/images/favicon.ico">
+</head>
+
+<body>
+    <!-- navbar  -->
+     <header>
+        <div class="background-image"></div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="../images/logo1.png" alt="brand">
+            </div>   
+        </div>
+    </nav>
+   
+</header>
+  
+<!-- -----------------------------login modal------------------------------------------------ -->
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+    <div class="wrapper">
+      <header>Admin Login Form</header>
+    
+      <form id="loginForm" >
+
+        <div class="field id">
+            <div class="input-area">
+              <label for="AdminId">Admin ID:</label>
+              <input type="text" id="AdminId" placeholder="Admin ID">
+            </div>
+            <div class="error error-txt"></div>
+          </div>
+
+        <div class="field name">
+          <div class="input-area">
+            <label for="Adminusername">Username:</label>
+            <input type="text" id="Adminusername" placeholder="Admin User Name">
+          </div>
+          <div class="error error-txt"></div>
+        </div>
+
+        <div class="field password">
+          <div class="input-area">
+            <label for="Adminpassword">Password:</label>
+            <input type="password" id="Adminpassword" placeholder="Admin Password">
+          </div>
+          <div class="error error-txt"></div>
+        </div>
+        <button id="login" type="button">Admin Login</button>
+      </form>
+    </div>
+    </div>
+    </div>
+    </body>
+    
+    <script src="admin.js"></script>
+  
+</html>

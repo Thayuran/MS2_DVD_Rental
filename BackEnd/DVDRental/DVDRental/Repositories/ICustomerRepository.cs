@@ -8,6 +8,8 @@ namespace DVDRental.Repositories
         Task<List<Customer>> GetAllCustomers();
         Task<Customer> GetCustomerById(string customerId);
         Task<Customer> UpdateCustomer(Customer customer);
+
+
         Task<bool> DeleteCustomer(string customerId);
         Task<bool> ActivateCustomer(string id);
         Task<bool> DeactivateCustomer(string customerId);

@@ -69,14 +69,13 @@ namespace DVDRental.Repositories
             {
                 await connection.OpenAsync();
                 var command = new SqlCommand(
-                    "INSERT INTO Customer (Id,CustomerName, Email,Address,AddressId,PhoneNo,JoinedDate, Action)" +
-                    "VALUES (@Id,@FullName, @Email,@Address,@AddressId, @PhoneNumber, @JoinedDate, @Action)", connection);
+                    "INSERT INTO Customer (Id,CustomerName, Email,Address,PhoneNo,JoinedDate, Action)" +
+                    "VALUES (@Id,@FullName, @Email,@Address,@PhoneNumber, @JoinedDate, @Action)", connection);
 
                 command.Parameters.AddWithValue("@Id",newCusId);
                 command.Parameters.AddWithValue("@FullName", customer.CustomerName);
                 command.Parameters.AddWithValue("@Email", customer.Email);
                 command.Parameters.AddWithValue("@Address", customer.Address);
-                command.Parameters.AddWithValue("@AddressId", customer.AddressId);
                 command.Parameters.AddWithValue("@PhoneNumber", customer.PhoneNo);
                 command.Parameters.AddWithValue("@JoinedDate", customer.joined_date);
                 command.Parameters.AddWithValue("@Action", customer.Action);
@@ -104,7 +103,6 @@ namespace DVDRental.Repositories
                         CustomerName = reader.GetString(reader.GetOrdinal("CustomerName")),
                         Email = reader.GetString(reader.GetOrdinal("Email")),
                         Address = reader.GetString(reader.GetOrdinal("Address")),
-                        AddressId = reader.GetInt32(reader.GetOrdinal("AddressId")),
                         PhoneNo = reader.GetInt32(reader.GetOrdinal("PhoneNo")),
                         joined_date = reader.GetDateTime(reader.GetOrdinal("JoinedDate")),
                         Action = reader.GetBoolean(reader.GetOrdinal("Action"))
@@ -132,7 +130,6 @@ namespace DVDRental.Repositories
                         CustomerName = reader.GetString(reader.GetOrdinal("CustomerName")),
                         Email = reader.GetString(reader.GetOrdinal("Email")),
                         Address = reader.GetString(reader.GetOrdinal("Address")),
-                        AddressId = reader.GetInt32(reader.GetOrdinal("AddressId")),
                         PhoneNo = reader.GetInt32(reader.GetOrdinal("PhoneNo")),
                         joined_date = reader.GetDateTime(reader.GetOrdinal("JoinedDate")),
                         Action = reader.GetBoolean(reader.GetOrdinal("Action"))
@@ -148,14 +145,12 @@ namespace DVDRental.Repositories
             {
                 await connection.OpenAsync();
                 var command = new SqlCommand(
-                    "UPDATE Customer SET CustomerName = @FullName, Email = @Email, Address = @Address, " +
-                    "AddressId = @AddressId, PhoneNo = @PhoneNumber, JoinedDate = @JoinedDate, Action = @Action " +
+                    "UPDATE Customer SET CustomerName = @FullName, Email = @Email, Address = @Address, PhoneNo = @PhoneNumber, JoinedDate = @JoinedDate, Action = @Action " +
                     "WHERE Id = @CustomerId", connection);
 
                 command.Parameters.AddWithValue("@FullName", customer.CustomerName);
                 command.Parameters.AddWithValue("@Email", customer.Email);
                 command.Parameters.AddWithValue("@Address", customer.Address);
-                command.Parameters.AddWithValue("@AddressId", customer.AddressId);
                 command.Parameters.AddWithValue("@PhoneNumber", customer.PhoneNo);
                 command.Parameters.AddWithValue("@JoinedDate", customer.joined_date);
                 command.Parameters.AddWithValue("@Action", customer.Action);

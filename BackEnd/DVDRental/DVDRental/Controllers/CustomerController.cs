@@ -69,9 +69,13 @@ namespace DVDRental.Controllers
         [HttpDelete("DELETE_CUSTOMER{id}")]
         public async Task<IActionResult> DeleteCustomer(string id)
         {
+           
             var result = await _customerService.DeleteCustomer(id);
-            if (!result) return NotFound();
-            return NoContent();
+            if (result)
+            {
+                return Ok(new { message = "Customer deleted successfully." });
+            }
+            return NotFound(new { message = "Customer not found." });
         }
 
         [HttpPut("{id}/activate")]

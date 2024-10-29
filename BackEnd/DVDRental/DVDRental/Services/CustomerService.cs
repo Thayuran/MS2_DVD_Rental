@@ -24,7 +24,6 @@ namespace DVDRental.Services
                 FullName = customer.CustomerName,
                 Email=customer.Email,
                 Address=customer.Address,
-                AddressId=customer.AddressId,
                 PhoneNumber=customer.PhoneNo,
                 JoinedDate=customer.joined_date,
                 Action=customer.Action
@@ -44,7 +43,6 @@ namespace DVDRental.Services
                 FullName = selectcustomer.CustomerName,
                 Email = selectcustomer.Email,
                 Address = selectcustomer.Address,
-                AddressId = selectcustomer.AddressId,
                 PhoneNumber = selectcustomer.PhoneNo,
                 JoinedDate = selectcustomer.joined_date,
                 Action = selectcustomer.Action
@@ -59,7 +57,6 @@ namespace DVDRental.Services
                 Email= customer.Email,
                 PhoneNo=customer.PhoneNumber,
                 joined_date=DateTime.Now,
-                AddressId=customer.AddressId,
                 Address=customer.Address
                
             };
@@ -71,7 +68,6 @@ namespace DVDRental.Services
                FullName=cus.CustomerName,
                Email=cus.Email,
                Address=cus.Address,
-               AddressId=(int)cus.AddressId,
                PhoneNumber=cus.PhoneNo,
                JoinedDate=cus.joined_date,
                Action = cus.Action
@@ -89,7 +85,6 @@ namespace DVDRental.Services
             selectCust.CustomerName = requestcustomer.FullName; 
             selectCust.Email=requestcustomer.Email;
             selectCust.Address=requestcustomer.Address;
-            selectCust.AddressId= requestcustomer.AddressId;
             selectCust.PhoneNo = requestcustomer.PhoneNumber;
             selectCust.joined_date=DateTime.Now;
             selectCust.Action = selectCust.Action;
@@ -102,7 +97,6 @@ namespace DVDRental.Services
                 FullName = updateCus.CustomerName,
                 Email = updateCus.Email,
                 Address = updateCus.Address,
-                AddressId = (int)updateCus.AddressId,
                 PhoneNumber = updateCus.PhoneNo,
                 JoinedDate = updateCus.joined_date,
                 Action = updateCus.Action
