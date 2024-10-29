@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MS2_DVD_API.IRepository;
+using MS2_DVD_API.IService;
 using MS2_DVD_API.Modals.RequestModal;
 
 namespace MS2_DVD_API.Controllers
@@ -9,12 +10,11 @@ namespace MS2_DVD_API.Controllers
     [ApiController]
     public class RequestController : ControllerBase
     {
-        private readonly IRequestRepository _requestRepository;
+        private readonly IRequestService _requestService;
 
-        public RequestController(IRequestRepository requestRepository)
+        public RequestController(IRequestService requestService)
         {
-            _requestRepository = requestRepository;
+            _requestService = requestService;
         }
-        
     }
 }

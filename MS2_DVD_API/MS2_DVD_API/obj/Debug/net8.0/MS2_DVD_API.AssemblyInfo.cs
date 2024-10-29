@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MS2_DVD_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1629deacee74a3bb0d99fb9dae02e0b2d9074c03")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+173c6184d5851cdff7fd9d9c99fed77edaa9ccfb")]
 [assembly: System.Reflection.AssemblyProductAttribute("MS2_DVD_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MS2_DVD_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MS2_DVD_API.Entity;
 using MS2_DVD_API.IRepository;
+using MS2_DVD_API.IService;
 
 namespace MS2_DVD_API.Controllers
 {
@@ -9,12 +10,13 @@ namespace MS2_DVD_API.Controllers
     [ApiController]
     public class MovieController : ControllerBase
     {
-        private readonly ImovieRepository _movieRepository;
+        private readonly IMovieService _movieService;
 
-        public MovieController(ImovieRepository movieRepository)
+        public MovieController(IMovieService movieService)
         {
-            _movieRepository = movieRepository;
+            _movieService = movieService;
         }
-        
+
+
     }
 }

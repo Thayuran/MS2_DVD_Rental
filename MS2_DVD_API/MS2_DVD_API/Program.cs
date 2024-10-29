@@ -1,7 +1,9 @@
 
 using MS2_DVD_API.Data;
 using MS2_DVD_API.IRepository;
+using MS2_DVD_API.IService;
 using MS2_DVD_API.Repository;
+using MS2_DVD_API.Service;
 
 namespace MS2_DVD_API
 {
@@ -23,6 +25,11 @@ namespace MS2_DVD_API
             builder.Services.AddSingleton<ICustomerRepository>(provider => new CustomerRepository(connectionString));
             builder.Services.AddSingleton<ImovieRepository>(provider => new MovieRepository(connectionString));
             builder.Services.AddSingleton<IRequestRepository>(provider => new RequestRepository(connectionString));
+
+            builder.Services.AddScoped<ICustomerService,CustomerService>();
+            builder.Services.AddScoped<IMovieService,MovieService>();
+            builder.Services.AddScoped<IRequestService,RequestService>();
+
             var app = builder.Build();
 
             var dbInitializer = new DatabaseInitializer(connectionString);
