@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const dvdTableBody = document.querySelector('#dvdTable tbody');
   
   const apiUrl = 'http://localhost:3000/dvds';
+
+// const apiUrl = 'https://localhost:7111/api/AdminDvd';
   const categoriesApiUrl = 'http://localhost:3000/categories';
   const usersUrl="http://localhost:3000/users";
   const rentsUrl="http://localhost:3000/rentals";
@@ -118,11 +120,9 @@ async function updateTotalEarnings(rentsUrl) {
     }
 }
 
-
-
-
 //frequently rental dvds
-async function displayFrequentlyRentedDVDs(rentsUrl,apiUrl) {
+async function displayFrequentlyRentedDVDs(rentsUrl,apiUrl)
+ {
     try {
         // Fetch rental data
         const response = await fetch(rentsUrl);
@@ -137,7 +137,7 @@ async function displayFrequentlyRentedDVDs(rentsUrl,apiUrl) {
 
         // Find the top 5 most frequently rented DVDs
         const top5FrequentDvds = Object.entries(dvdFrequency)
-            .sort(([, countA], [, countB]) => countB - countA) // Sort by frequency
+            .sort(([, countA], [, countB]) => countB - countA) 
             .slice(0, 5) // Get the top 5
             .map(([dvdId]) => dvdId); // Extract DVD IDs
 
@@ -182,17 +182,17 @@ updateTotalDVDs(apiUrl);
 updateTotalRents(rentsUrl);
 updateTotalEarnings(rentsUrl);
 fetchCategories();
-    fetchDVDs();
-    fetchCustomers();
-    fetchNotifications();                       //29.10
-    fetchRentalHistory();
-    displayFrequentlyRentedDVDs(rentsUrl,apiUrl);
+    
+fetchDVDs();
+fetchCustomers();
+fetchNotifications();                       //29.10
+fetchRentalHistory();
+displayFrequentlyRentedDVDs(rentsUrl,apiUrl);
 
 dvdTableBody.addEventListener('click', (event) => {
     if (event.target.classList.contains('delete-btn')) {
         const dvdId = event.target.getAttribute('data-id');
         const confirmDelete = confirm("Are you sure you want to delete this DVD?");
-
         if (confirmDelete) {
             removeDVD(dvdId);
         }
@@ -321,11 +321,12 @@ document.getElementById("modal-form").addEventListener("submit", async (e) => {
 });
 
 
-  async function fetchDVDs() {
+async function fetchDVDs() 
+{
     const response=await fetch(apiUrl);
     const dvds = await response.json();
       updateDVDTable(dvds);
-  }
+}
 
 
   //customer
@@ -336,14 +337,14 @@ async function fetchCustomers() {
   }
 
 
-  async function removeDVD(dvdId) {
-
+  async function removeDVD(dvdId) 
+  {
     fetchDvdData().then(dvds => {
         const updatedDvds = dvds.filter(dvd => dvd.id !== parseInt(dvdId));
         // updateDvdData(updatedDvds);
         filterDvdTable(updatedDvds);
     });
-}
+  }
 
 
 

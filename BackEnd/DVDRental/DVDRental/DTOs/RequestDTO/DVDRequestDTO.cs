@@ -9,5 +9,6 @@
         public string Director { get; set; }
         public int Copies { get; set; }
         public IFormFile? Image { get; set; }
+        public decimal rentprice { get; set; }
     }
 }

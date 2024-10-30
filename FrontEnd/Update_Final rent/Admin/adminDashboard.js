@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
   const dvdIdInput = document.getElementById('dvdId');
   const submitBtn = document.getElementById("submit-btn");
-  const editbtn = document.getElementById("edit-btn");
+//   const editbtn = document.getElementById("edit-btn");
 
   
   const dropdownption=document.getElementById('dropdown');
@@ -16,10 +16,17 @@ document.addEventListener("DOMContentLoaded", function() {
   const searchbtn=document.getElementById('search-dvd-btn');
   const dvdTableBody = document.querySelector('#dvdTable tbody');
   
-  const apiUrl = 'http://localhost:3000/dvds';
-  const categoriesApiUrl = 'http://localhost:3000/categories';
-  const usersUrl="http://localhost:3000/users";
-  const rentsUrl="http://localhost:3000/rentals";
+//   const apiUrl = 'http://localhost:3000/dvds';
+ const apiUrl = 'https://localhost:7111/api/AdminDvd';
+
+//   const categoriesApiUrl = 'http://localhost:3000/categories';
+   const categoriesApiUrl ='https://localhost:7111/api/Categories';
+
+//   const usersUrl="http://localhost:3000/users";
+    const usersUrl='https://localhost:7111/api/Customer';
+
+//   const rentsUrl="http://localhost:3000/rentals";
+const rentsUrl='https://localhost:7111/api/Rentals';
 
   if (showdvdBtn && dvdModal) {
       showdvdBtn.addEventListener("click", function() {
@@ -98,7 +105,6 @@ async function updateTotalRents(rentsUrl) {
     }
 }
 
-
 //count box 4
 async function updateTotalEarnings(rentsUrl) {
     const totalFinesElement = document.getElementById("totalcash"); 
@@ -118,48 +124,42 @@ async function updateTotalEarnings(rentsUrl) {
     }
 }
 
-
-
-
 //frequently rental dvds
 async function displayFrequentlyRentedDVDs(rentsUrl,apiUrl) {
     try {
-        // Fetch rental data
+        
         const response = await fetch(rentsUrl);
         const rentals = await response.json();
 
-        // Count the frequency of each DVD by DVD ID
+       
         const dvdFrequency = {};
         rentals.forEach(rental => {
-            const dvdId = rental.dvdId.toString(); // Ensure dvdId is treated as a string
+            const dvdId = rental.dvdId.toString(); 
             dvdFrequency[dvdId] = (dvdFrequency[dvdId] || 0) + 1;
         });
 
-        // Find the top 5 most frequently rented DVDs
+        
         const top5FrequentDvds = Object.entries(dvdFrequency)
-            .sort(([, countA], [, countB]) => countB - countA) // Sort by frequency
-            .slice(0, 5) // Get the top 5
-            .map(([dvdId]) => dvdId); // Extract DVD IDs
-
-        // Fetch DVD details for the top 5 DVDs
+            .sort(([, countA], [, countB]) => countB - countA)
+            .slice(0, 5) 
+            .map(([dvdId]) => dvdId); 
+       
         const dvdsResponse = await fetch(apiUrl);
         const dvds = await dvdsResponse.json();
 
-        // Create a map for DVD details by ID
+       
         const dvdDetailsMap = dvds.reduce((map, dvd) => {
             map[dvd.title] = dvd;
             return map;
         }, {});
-
-        // Display the DVD details on the home page
-        const container = document.getElementById("frequentDvdContainer"); // Assume an element with this ID exists
-        container.innerHTML = ''; // Clear previous content
+        const container = document.getElementById("frequentDvdContainer"); 
+        container.innerHTML = ''; 
 
         top5FrequentDvds.forEach(dvdId => {
             const dvdDetails = dvdDetailsMap[dvdId];
             if (dvdDetails) {
                 const card = document.createElement("div");
-                card.classList.add("dvd-card"); // Add your own CSS class for styling
+                card.classList.add("dvd-card");
 
                 card.innerHTML = `
                  <img src="${dvdDetails.image}" alt="${dvdDetails.title}" class="product-img" />
@@ -176,18 +176,20 @@ async function displayFrequentlyRentedDVDs(rentsUrl,apiUrl) {
     }
 }
 
-
 updateTotalUsers(usersUrl);
 updateTotalDVDs(apiUrl);
 updateTotalRents(rentsUrl);
 updateTotalEarnings(rentsUrl);
-fetchCategories();
-    fetchDVDs();
-    fetchCustomers();
-    fetchNotifications();                       //29.10
-    fetchRentalHistory();
-    displayFrequentlyRentedDVDs(rentsUrl,apiUrl);
+displayFrequentlyRentedDVDs(rentsUrl,apiUrl);
 
+fetchCategories();
+fetchDVDs();
+fetchCustomers();
+fetchRentalHistory();
+fetchNotification();  
+// fetchNotifications();                     
+    
+   
 dvdTableBody.addEventListener('click', (event) => {
     if (event.target.classList.contains('delete-btn')) {
         const dvdId = event.target.getAttribute('data-id');
@@ -196,7 +198,6 @@ dvdTableBody.addEventListener('click', (event) => {
         if (confirmDelete) {
             removeDVD(dvdId);
         }
-
     }
 });
 
@@ -207,7 +208,8 @@ searchbtn.addEventListener('click', () => {
   
     fetchDvdData().then(dvds => {
         const filteredDvds = filterDvds(dvds, category, searchText);
-        filterDvdTable(filteredDvds);
+        // filterDvdTable(filteredDvds);
+        updateDVDTable(filteredDvds);
     });
   });
 
@@ -217,7 +219,8 @@ searchbtn.addEventListener('click', () => {
 }
 
 fetchDvdData().then(dvds => {
-    filterDvdTable(dvds);
+    // filterDvdTable(dvds);
+    updateDVDTable(dvds);
 });
 
 function fetchCategories() {
@@ -238,7 +241,7 @@ function fetchCategories() {
   }
 
 
-  function  filterDvdTable(dvds) {
+function  filterDvdTable(dvds) {
     dvdTableBody.innerHTML = '';
 
     if (dvds.length === 0) {
@@ -265,7 +268,6 @@ function fetchCategories() {
     });
 }
 
-
 // window.onload =() => {
 //     fetchCategories();
 //     fetchDVDs();
@@ -275,12 +277,12 @@ function fetchCategories() {
     
 //   };
 
-
 // add new dvd
 let price=80;
 // async function addDVD() 
 // {
-document.getElementById("modal-form").addEventListener("submit", async (e) => {
+document.getElementById("modal-form").addEventListener("submit", async (e) => 
+    {
         e.preventDefault();
   const title = document.getElementById('title').value;
   const director = document.getElementById('director').value;
@@ -309,7 +311,6 @@ document.getElementById("modal-form").addEventListener("submit", async (e) => {
       alert('Failed to add DVD');
   }
 
-
   function getBase64(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -319,6 +320,25 @@ document.getElementById("modal-form").addEventListener("submit", async (e) => {
     });
 } 
 });
+
+ // id generate
+ let dvdIdanuto=1; 
+      
+ async function generateIds() {
+         try {
+             const response = await fetch('https://localhost:7111/api/AdminDvd/new-id'); 
+             if (!response.ok) {
+                 throw new Error('Failed to retrieve new DVD ID');
+             }
+     
+             const data = await response.json();
+             const newDvdId = data.newDvdId;
+     
+             document.getElementById("dvdIdInput").value = newDvdId;
+         } catch (error) {
+             console.error("Error fetching new DVD ID:", error);
+         }
+     }
 
 
   async function fetchDVDs() {
@@ -334,18 +354,19 @@ async function fetchCustomers() {
     const customerdetails = await cusresponse.json();
       updateCustomerTable(customerdetails);
   }
+//   async function removeDVD(dvdId) {
 
+//     fetchDvdData().then(dvds => {
+//         const updatedDvds = dvds.filter(dvd => dvd.id !== parseInt(dvdId));
+//         updateDvdData(updatedDvds);
+//         // filterDvdTable(updatedDvds);
+//     });
+// }
 
-  async function removeDVD(dvdId) {
-
-    fetchDvdData().then(dvds => {
-        const updatedDvds = dvds.filter(dvd => dvd.id !== parseInt(dvdId));
-        // updateDvdData(updatedDvds);
-        filterDvdTable(updatedDvds);
-    });
+function removeDVD(dvdRow) {
+    dvdRow.remove();
+    alert("DVD removed from the DVD Table");
 }
-
-
 
 function updateDVDTable(dvds) {
     const dvdTableBody = document.getElementById('dvdTable').querySelector('tbody');
@@ -392,24 +413,24 @@ function updateDVDTable(dvds) {
         priceCell.textContent = dvd.price;
         row.appendChild(priceCell);
   
-  
         const actionCell = document.createElement('td');
         const editButton = document.createElement('button');
         editButton.innerHTML = '<ion-icon name="create-outline"></ion-icon>';
         editButton.classList.add('edit-btn');
         editButton.addEventListener('click', () => {
-            // Add your edit function here
             editDVD(dvd.id);
             
         });
-  
   
         const deleteButton = document.createElement('button');
         deleteButton.innerHTML = '<ion-icon name="trash-outline"></ion-icon>';
         deleteButton.classList.add('delete-btn');
         deleteButton.addEventListener('click', () => {
-            // Add your delete function here
-            removeDVD(dvd.id);
+            const confirmation = confirm("Are you sure you want to delete this DVD?");
+            if (confirmation) {
+               
+                removeDVD(actionCell.parentElement);
+            }
         });
     
         actionCell.appendChild(editButton);
@@ -437,11 +458,16 @@ function updateDvdData(updatedDvds) {
         console.error("Error updating DVD data:", error);
     });
     }
-    
-    
-
  
+
 // document.getElementById('edit-btn')
+
+if(showdvdBtn.click)
+{
+
+}
+
+
 function showModal(action, dvd = null) {
   if(action === 'edit'){
     dvdModal.style.display="block";
@@ -476,13 +502,12 @@ function showModal(action, dvd = null) {
     modalTitle.textContent = 'Add New DVD';
     submitBtn.textContent = 'Add DVD';
     modalForm.reset();
-    dvdIdInput.value = ''; 
+    // dvdIdInput.value = ''; 
 
     const existingPreview = document.querySelector('.field.image img');
     if (existingPreview) {
         existingPreview.remove();
-    }
-   
+    } 
 }
 dvdModal.style.display = 'flex';
 }
@@ -512,9 +537,8 @@ window.addEventListener('click', (event) => {
   }
 });
 
-  // id generate
-      let dvdIdanuto=1; 
-      function generateId() 
+
+function generateId() 
       {
         fetch(apiUrl)
             .then(response => response.json())
@@ -548,9 +572,12 @@ async function editDVD(dvdId)
   document.getElementById('copies').value = dvd.copies;
   document.getElementById('image').files[0]=dvd.image;
 
- const submitButton = document.getElementById('submit-btn');
-    submitButton.textContent = 'Update DVD';
-    submitButton.onclick = async function () {
+//  const submitButton = document.querySelectorAll('edit-btn');
+//      submitButton.textContent = 'Update_DVD';
+
+// const submitButton = document.getElementById('submit-btn');
+    submitBtn.textContent = 'Update DVD';
+    submitBtn.onclick = async function () {
       const updatedTitle = document.getElementById('title').value;
       const updatedDirector = document.getElementById('director').value;
       const updatedReleaseDate = document.getElementById('releaseDate').value;
@@ -585,8 +612,8 @@ async function editDVD(dvdId)
       if (updateResponse.ok) {
           fetchDVDs();
           document.getElementById('dvdForm').reset();
-          submitButton.textContent = 'Add DVD';
-          submitButton.onclick = addDVD;
+          submitBtn.textContent = 'Add DVD';
+        submitBtn.onclick = addDVD;
       } else {
           alert('Failed to update DVD');
       }
@@ -599,7 +626,8 @@ function openCategoryModal() {
   document.getElementById('categoryModal').style.display = 'block';
   document.getElementById('dvdModal').style.display = 'none';
 }
-
+openCategoryModal();
+closeCategoryModal();
 // Close the category modal
 function closeCategoryModal() {
   document.getElementById('categoryModal').style.display = 'none';
@@ -924,78 +952,84 @@ document.querySelectorAll('.close').onclick = function() {
 // }
 
 
-// async function fetchNotification()
-// {
+async function fetchNotification()
+{
 
-//     const response= await fetch('http://localhost:3000/adminNotification');
-//     const notification =await response.json();
+    const response= await fetch('http://localhost:3000/adminNotification');
+    const notification =await response.json();
     
-//     const notificationTableBody = document.getElementById('notificationTable').querySelector('tbody');
-//     notificationTableBody.innerHTML = '';
+    const notificationTableBody = document.getElementById('notificationTable').querySelector('tbody');
+    notificationTableBody.innerHTML = '';
   
-//     notification.forEach(notify => {
-//         const row = document.createElement('tr');
+    notification.forEach(notify => {
+        const row = document.createElement('tr');
 
-//         const idCell = document.createElement('td');
-//         idCell.textContent = notify.id;
-//         row.appendChild(idCell);
+        const idCell = document.createElement('td');
+        idCell.textContent = notify.id;
+        row.appendChild(idCell);
   
         
-//         const userCell = document.createElement('td');
-//         userCell.textContent = notify.user;
-//         row.appendChild(userCell);
+        const userCell = document.createElement('td');
+        userCell.textContent = notify.user;
+        row.appendChild(userCell);
   
-//         const dvdCell = document.createElement('td');
-//         dvdCell.textContent = notify.dvdName;
-//         row.appendChild(dvdCell);
+        const dvdCell = document.createElement('td');
+        dvdCell.textContent = notify.dvdName;
+        row.appendChild(dvdCell);
   
-//         const statusCell = document.createElement('td');
-//         statusCell.textContent = notify.status;
-//         row.appendChild(statusCell);
+        const statusCell = document.createElement('td');
+        statusCell.textContent = notify.status;
+        row.appendChild(statusCell);
   
-//         const dateCell = document.createElement('td');
-//         dateCell.textContent = new Date(notify.date).toLocaleDateString({day:'2-digit',month:'2-digit'});
-//         row.appendChild(dateCell);
+        const dateCell = document.createElement('td');
+        dateCell.textContent = new Date(notify.date).toLocaleDateString({day:'2-digit',month:'2-digit'});
+        row.appendChild(dateCell);
 
-//         const actionCell = document.createElement('td');
-//         const selectElement = document.createElement('select');
+        const actionCell = document.createElement('td');
+        const selectElement = document.createElement('select');
 
-//         const acceptedOption = document.createElement('option');
-//         acceptedOption.value = 'Accepted';
-//         acceptedOption.textContent = 'Accepted';
-//         if (notify.status === 'Accepted') {
-//             acceptedOption.selected = true;
-//         }
+        const acceptedOption = document.createElement('option');
+        acceptedOption.value ='Accepted';
+        acceptedOption.textContent ='Accepted';
+       
         
-//         const rentedOption = document.createElement('option');
-//         rentedOption.value = 'Rented';
-//         rentedOption.textContent = 'Rented';
-//         if(selectElement.value==='Rented')
-//         {
-//             selectElement.disabled=true;
-//         }
-//         else
-//         {
-//             selectElement.disabled=false;
-//         }
-//         selectElement.appendChild(acceptedOption);
-//         selectElement.appendChild(rentedOption);
+        const rentedOption = document.createElement('option');
+        rentedOption.value = 'Rented';
+        rentedOption.textContent = 'Rented';
+        if(selectElement.value==='Rented')
+        {
+            selectElement.disabled=false;
+        }
+        else if(selectElement.value ==='Accepted')
+            {
+                
+                statusCell.textContent='Approved';
+            }
+        else
+        {
+            selectElement.disabled=false;
+        }
+        selectElement.appendChild(acceptedOption);
+        selectElement.appendChild(rentedOption);
         
-//         if(statusCell.textContent==='Rented')
-//         {
-//             statusCell.style.fontWeight='bold'
-//             statusCell.style.color='green'
-//         }
-//         else{
-//              statusCell.style.fontWeight='bold'
-//             statusCell.style.color='yellow'
-//         }
-//         selectElement.addEventListener('change', function() {
-//             changeStatus(this,notify.id, notify.userId, notify.dvdName);
-//         });
-        
-        
-  
+        if(statusCell.textContent==='Rented')
+        {
+            statusCell.style.fontWeight='bold'
+            statusCell.style.color='green'
+        }
+        else if(statusCell.textContent==='Approved')
+            {
+                statusCell.style.fontWeight='bold'
+                statusCell.style.color='blue'
+            }
+        else{
+             statusCell.style.fontWeight='bold'
+            statusCell.style.color='yellow'
+        }
+        selectElement.addEventListener('change', function() {
+            changeStatus(this,notify.id, notify.userId, notify.dvdName);
+        });
+    
     
   
   
@@ -1012,12 +1046,12 @@ document.querySelectorAll('.close').onclick = function() {
 //         // actionCell.appendChild(acceptButton);       
 //         // row.appendChild(actionCell);
 
-//         actionCell.appendChild(selectElement);
-//         row.appendChild(actionCell);
+        actionCell.appendChild(selectElement);
+        row.appendChild(actionCell);
   
-//         notificationTableBody.appendChild(row);
-//     });
-// }
+        notificationTableBody.appendChild(row);
+    });
+}
  
 // function changeStatus(selectElement, notificationId, userId,dvdName) {
 //     const newStatus = selectElement.value;
@@ -1109,7 +1143,8 @@ async function checkCancelRequest()
 //rental table view
 async function fetchRentalHistory() {
     try {
-        const response = await fetch('http://localhost:3000/rentals');
+        // const response = await fetch('http://localhost:3000/rentals');
+        const response = await fetch(`${rentsUrl}`);
         const rentalHistory = await response.json();
 
         const rentalHistoryTableBody = document.getElementById('RentalTable').querySelector('tbody');
@@ -1251,7 +1286,7 @@ function showConditionModal(record,returnButton) {
             copies: dvdData.copies + 1
         };
 
-        await fetch(`http://localhost:3000/dvds/${dvdData.id}`, {
+        await fetch(`${apiUrl}/${dvdData.id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updatedDVD)
@@ -1263,7 +1298,8 @@ function showConditionModal(record,returnButton) {
 // 
 
 function checkOverdueRentals() {
-    fetch('http://localhost:3000/rentals')
+    // fetch('http://localhost:3000/rentals')
+    fetch(`${rentsUrl}`)
     .then(response => response.json())
     .then(rentals => {
         rentals.forEach(rental => {
@@ -1282,7 +1318,7 @@ function checkOverdueRentals() {
 }
 
 function updateRental(rental) {
-    fetch(`http://localhost:3000/rentals/${rental.id}`, {
+    fetch(`${rentsUrl}/${rental.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -1301,7 +1337,7 @@ function updateRental(rental) {
 async function updateRentalRecord(rentalId, updatedData) {
     // const returnbtn=document.getElementById('submit-cfm');
     try {
-        await fetch(`http://localhost:3000/rentals/${rentalId}`, {
+        await fetch(`${rentsUrl}/${rentalId}`, {
             method: 'PATCH', // Use PATCH to update specific fields
             headers: {
                 'Content-Type': 'application/json',
@@ -1324,47 +1360,50 @@ async function updateRentalRecord(rentalId, updatedData) {
 // }
 // 
 
-// function changeStatus(selectElement, notificationId, userId,dvdName) {
-//     const newStatus = selectElement.value;
+function changeStatus(selectElement, notificationId, userId,dvdName) {
+    const newStatus = selectElement.value;
+    if(newStatus==='Accepted')
+    {
+        alert('Request DVD Approved');
+    }
+    else if (newStatus === 'Rented') {
+        const rentDate = new Date();
+        const dueDate = new Date(rentDate);
+        dueDate.setDate(rentDate.getDate() + 7);
 
-//     if (newStatus === 'Rented') {
-//         const rentDate = new Date();
-//         const dueDate = new Date(rentDate);
-//         dueDate.setDate(rentDate.getDate() + 7);
-
-//         // Create a new rental 
-//         const rentalRecord = {
-//             rentId: generateRentId(), 
-//             customerId: userId,
-//             dvdId: dvdName,
-//             rentDate: rentDate.toISOString(),
-//             dueDate: dueDate.toISOString(),
-//             returnDate: null,
-//             advance: 200,  
-//             payAction: null
-//         };
+        // Create a new rental 
+        const rentalRecord = {
+            rentId: generateRentId(), 
+            customerId: userId,
+            dvdId: dvdName,
+            rentDate: rentDate.toISOString(),
+            dueDate: dueDate.toISOString(),
+            returnDate: null,
+            advance: 200,  
+            payAction: null
+        };
 
        
-//         fetch('http://localhost:3000/rentals', {
-//             method: 'POST',
-//             headers: { 'Content-Type': 'application/json' },
-//             body: JSON.stringify(rentalRecord)
-//         })
-//         .then(() => {
-//             alert('DVD rented successfully');
+        fetch(`${rentsUrl}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(rentalRecord)
+        })
+        .then(() => {
+            alert('DVD rented successfully');
            
-//             return fetch(`http://localhost:3000/adminNotification/${notificationId}`, {
-//                 method: 'PATCH',
-//                 headers: { 'Content-Type': 'application/json' },
-//                 body: JSON.stringify({ status: newStatus })
-//             });
-//         })
-//         .then(() => {
-//             fetchNotification(); 
-//         })
-//         .catch(error => console.error('Error processing rental:', error));
-//     }
-// }
+            return fetch(`http://localhost:3000/adminNotification/${notificationId}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status: newStatus })
+            });
+        })
+        .then(() => {
+            fetchNotification(); 
+        })
+        .catch(error => console.error('Error processing rental:', error));
+    }
+}
 
 
 
@@ -1502,7 +1541,7 @@ async function returnDVD(rentalId, dvdId) {
         const currentDate = new Date().toISOString().split('T')[0];
 
         
-        const rentalResponse = await fetch(`http://localhost:3000/rentals/${rentalId}`);
+        const rentalResponse = await fetch(`${rentsUrl}/${rentalId}`);
         const rentalData = await rentalResponse.json();
 
         if (rentalData.returnDate) {
@@ -1516,7 +1555,7 @@ async function returnDVD(rentalId, dvdId) {
             payAction: "Returned"
         };
 
-        await fetch(`http://localhost:3000/rentals/${rentalId}`, {
+        await fetch(`${rentsUrl}/${rentalId}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updatedRental)
@@ -1525,7 +1564,7 @@ async function returnDVD(rentalId, dvdId) {
         document.getElementById(`returnDate_${rentalId}`).innerText = currentDate;
 
         // Step 2: Increment the DVD Copies
-        const dvdResponse = await fetch(`http://localhost:3000/dvds?title=${dvdId}`);
+        const dvdResponse = await fetch(`${apiUrl}?title=${dvdId}`);
         const dvdDataArray = await dvdResponse.json();
         const dvdData = dvdDataArray[0];
 
@@ -1539,7 +1578,7 @@ async function returnDVD(rentalId, dvdId) {
             copies: dvdData.copies + 1
         };
 
-        await fetch(`http://localhost:3000/dvds/${dvdData.id}`, {
+        await fetch(`${apiUrl}/${dvdData.id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updatedDVD)
@@ -1558,8 +1597,9 @@ async function returnDVD(rentalId, dvdId) {
 
 
 
-const rentsUrl="http://localhost:3000/rentals";
-const usersUrl="http://localhost:3000/users";
+const rentsUrl='https://localhost:7111/api/Rentals';
+const usersUrl='https://localhost:7111/api/Customer';
+
 document.getElementById('searchBtn').addEventListener('click', searchRentalHistory);
 document.getElementById('generateReportBtn').addEventListener('click', generateReportAndPrint);
 
@@ -1631,7 +1671,7 @@ async function searchRentalHistory() {
 
 async function fetchRentalsByUserId(userId) {
     try {
-        const response = await fetch(`http://localhost:3000/rentals?customerId=${userId}`);
+        const response = await fetch(`${rentsUrl}?customerId=${userId}`);
         const rentals = await response.json();
 
         if (rentals.length === 0) {

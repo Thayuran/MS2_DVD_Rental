@@ -66,6 +66,7 @@ namespace DVDRental.Repositories
                                 Director = reader.IsDBNull(3) ? null : reader.GetString(3),
                                 Copies = reader.IsDBNull(5) ? 0 : reader.GetInt32(5),   
                                 ImagePath= reader.IsDBNull(6) ? null : reader.GetString(6),
+                                rentprice=reader.IsDBNull(7) ? 0:reader.GetDecimal(7)
                             };
                         /* movieDict.Add(movieId, movieDvd);*/
                         movieDvds.Add(movieDvd);
@@ -207,7 +208,8 @@ namespace DVDRental.Repositories
                             ReleaseDate = reader.GetDateTime(reader.GetOrdinal("ReleaseDate")),
                             Copies = reader.GetInt32(reader.GetOrdinal("Copies")),
                             ImagePath = reader.IsDBNull(reader.GetOrdinal("ImagePath")) ? null : reader.GetString(reader.GetOrdinal("ImagePath")),
-                            categoryid = reader.GetInt32(reader.GetOrdinal("categoryID"))
+                            categoryid = reader.GetInt32(reader.GetOrdinal("categoryID")),
+                            rentprice = reader.GetDecimal(reader.GetOrdinal("rentprice"))
                         };
                     }
 
@@ -236,7 +238,7 @@ namespace DVDRental.Repositories
             {
                 // Update DVD details
                 string query = @"UPDATE DVDs 
-                         SET Title = @Title, Director = @Director, ReleaseDate = @ReleaseDate,categoryID=@cateID AvailableCopies = @Copies, ImagePath = @ImagePath
+                         SET Title = @Title, Director = @Director, ReleaseDate = @ReleaseDate,categoryID=@cateID AvailableCopies = @Copies, ImagePath = @ImagePath,rentprice=@price
                          WHERE Id = @Id";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -247,6 +249,7 @@ namespace DVDRental.Repositories
                 cmd.Parameters.AddWithValue("@ReleaseDate", movieDvd.ReleaseDate);
                 cmd.Parameters.AddWithValue("@Copies", movieDvd.Copies);
                 cmd.Parameters.AddWithValue("@ImagePath", movieDvd.ImagePath ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@price", movieDvd.rentprice);
 
                 conn.Open();
                 await cmd.ExecuteNonQueryAsync();

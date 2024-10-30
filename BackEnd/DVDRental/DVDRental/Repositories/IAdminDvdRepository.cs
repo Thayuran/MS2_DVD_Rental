@@ -13,6 +13,8 @@ namespace DVDRental.Repositories
         Task DeleteAsync(String id);
 
 
+        Task<string> GetLastDvdIdAsync();
+
         Task<List<MovieDvd>> GetDVDsByCategoryAsync(int categoryId);
         Task AddDVDToCategoryAsync(string dvdId, int categoryId);
         Task RemoveDVDFromCategoryAsync(string dvdId, int categoryId);

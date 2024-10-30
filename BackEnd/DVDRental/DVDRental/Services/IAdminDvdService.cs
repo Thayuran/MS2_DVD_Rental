@@ -11,7 +11,7 @@ namespace DVDRental.Services
         Task UpdateDVDAsync(string id,DVDRequestDTO dvd);
         Task DeleteDVDAsync(string id);
 
-
+        Task<string> GenerateNewDvdIdAsync();
 
        /* Task<List<DVDResponseDTO>> GetDVDsByCategoryAsync(int categoryId);
         Task AddDVDToCategoryAsync(string dvdId, int categoryId);

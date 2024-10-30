@@ -14,7 +14,7 @@
         public int Copies {  get; set; }
 
         public string? ImagePath { get; set; }
-        /*  public decimal rentprice {  get; set; }*/
+        public decimal rentprice { get; set; }
 
     }
 }

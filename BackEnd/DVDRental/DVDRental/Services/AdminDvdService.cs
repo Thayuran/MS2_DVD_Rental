@@ -43,7 +43,8 @@ namespace DVDRental.Services
                     ReleaseDate = dvd.ReleaseDate,
                     Director = dvd.Director,
                     Copies = dvd.Copies,
-                   ImagePath = dvd.ImagePath
+                   ImagePath = dvd.ImagePath,
+                   RentPrice=dvd.rentprice
                 });
             }
             return dvdResponseList;
@@ -64,7 +65,8 @@ namespace DVDRental.Services
                 ReleaseDate = dvd.ReleaseDate,
                 Director = dvd.Director,
                 Copies = dvd.Copies,
-                ImagePath = dvd.ImagePath
+                ImagePath = dvd.ImagePath,
+                RentPrice= dvd.rentprice
             };
         }
 
@@ -81,7 +83,8 @@ namespace DVDRental.Services
                 ReleaseDate = dvd.ReleaseDate,
                 Director = dvd.Director,
                 Copies = dvd.Copies,
-                ImagePath = dvd.Image.ToString()
+                ImagePath = dvd.Image.ToString(),
+                rentprice=dvd.rentprice
             };
 
             /*foreach (var categoryId in dvd.CategoryIds)
@@ -103,7 +106,8 @@ namespace DVDRental.Services
                 ReleaseDate = result.ReleaseDate,
                 Director = result.Director,
                 Copies = result.Copies,
-                ImagePath = result.ImagePath
+                ImagePath = result.ImagePath,
+                RentPrice= result.rentprice
             };
         }
 
@@ -145,86 +149,103 @@ namespace DVDRental.Services
 
         //categories
 
-       /* public async Task<List<DVDResponseDTO>> GetDVDsByCategoryAsync(int categoryId)
+        /* public async Task<List<DVDResponseDTO>> GetDVDsByCategoryAsync(int categoryId)
+         {
+             var category = await _categoriesRepository.GetByIdAsync(categoryId);
+             if (category == null)
+             {
+                 throw new ArgumentException("Category not found", nameof(categoryId));
+             }
+
+             var dvds = await _dvdRepository.GetDVDsByCategoryAsync(categoryId);
+             return dvds.Select(MapToDVDResponseDTO).ToList();
+         }*/
+
+        /* public async Task AddDVDToCategoryAsync(string dvdId, int categoryId)
+         {
+             var dvd = await _dvdRepository.GetMovieById(dvdId);
+             if (dvd == null)
+             {
+                 throw new ArgumentException("DVD not found", nameof(dvdId));
+             }
+
+             var category = await _categoriesRepository.GetByIdAsync(categoryId);
+
+             if (dvd.Categories == null)
+             {
+                 dvd.Categories = new List<Categories>();
+             }
+
+             if (!dvd.Categories.Any(c => c.CategoryID == categoryId))
+             {
+                 dvd.Categories.Add(category);
+                 await _dvdRepository.UpdateAsync(dvd);
+             }
+         }
+ */
+        /*public async Task RemoveDVDFromCategoryAsync(string dvdId, int categoryId)
+    {
+        var dvd = await _dvdRepository.GetMovieById(dvdId);
+        if (dvd == null)
         {
-            var category = await _categoriesRepository.GetByIdAsync(categoryId);
-            if (category == null)
-            {
-                throw new ArgumentException("Category not found", nameof(categoryId));
-            }
-
-            var dvds = await _dvdRepository.GetDVDsByCategoryAsync(categoryId);
-            return dvds.Select(MapToDVDResponseDTO).ToList();
-        }*/
-
-       /* public async Task AddDVDToCategoryAsync(string dvdId, int categoryId)
-        {
-            var dvd = await _dvdRepository.GetMovieById(dvdId);
-            if (dvd == null)
-            {
-                throw new ArgumentException("DVD not found", nameof(dvdId));
-            }
-
-            var category = await _categoriesRepository.GetByIdAsync(categoryId);
-
-            if (dvd.Categories == null)
-            {
-                dvd.Categories = new List<Categories>();
-            }
-
-            if (!dvd.Categories.Any(c => c.CategoryID == categoryId))
-            {
-                dvd.Categories.Add(category);
-                await _dvdRepository.UpdateAsync(dvd);
-            }
+            throw new ArgumentException("DVD not found", nameof(dvdId));
         }
-*/
-            /*public async Task RemoveDVDFromCategoryAsync(string dvdId, int categoryId)
+
+       *//* if (dvd.Categories != categoryId)
         {
-            var dvd = await _dvdRepository.GetMovieById(dvdId);
-            if (dvd == null)
-            {
-                throw new ArgumentException("DVD not found", nameof(dvdId));
-            }
-
-           *//* if (dvd.Categories != categoryId)
-            {
-                throw new InvalidOperationException("DVD is not in the specified category");
-            }
-
-            dvd.CategoryId = null;
-            await _dvdRepository.UpdateAsync(dvd);*//*
-
-            
-            var categoryToRemove = dvd.Categories?.FirstOrDefault(c => c.CategoryID == categoryId);
-            if (categoryToRemove == null)
-            {
-                throw new InvalidOperationException("DVD is not in the specified category");
-            }
-
-            dvd.Categories.Remove(categoryToRemove);
-            await _dvdRepository.UpdateAsync(dvd);
-        }*/
-
-          /*  private DVDResponseDTO MapToDVDResponseDTO(MovieDvd dvd)
-        {
-            return new DVDResponseDTO
-            {
-                ID = dvd.ID,
-                MovieName = dvd.Title,
-                Director= dvd.Director,
-                ReleaseDate = dvd.ReleaseDate,
-                ImagePath = dvd.ImagePath,
-                Categories=dvd.Categories?.Select(c => c.CategoryID).ToList() ?? new List<int>(),
-                Copies=dvd.Copies,
-                
-                
-            };
+            throw new InvalidOperationException("DVD is not in the specified category");
         }
+
+        dvd.CategoryId = null;
+        await _dvdRepository.UpdateAsync(dvd);*//*
+
+
+        var categoryToRemove = dvd.Categories?.FirstOrDefault(c => c.CategoryID == categoryId);
+        if (categoryToRemove == null)
+        {
+            throw new InvalidOperationException("DVD is not in the specified category");
+        }
+
+        dvd.Categories.Remove(categoryToRemove);
+        await _dvdRepository.UpdateAsync(dvd);
+    }*/
+
+        /*  private DVDResponseDTO MapToDVDResponseDTO(MovieDvd dvd)
+      {
+          return new DVDResponseDTO
+          {
+              ID = dvd.ID,
+              MovieName = dvd.Title,
+              Director= dvd.Director,
+              ReleaseDate = dvd.ReleaseDate,
+              ImagePath = dvd.ImagePath,
+              Categories=dvd.Categories?.Select(c => c.CategoryID).ToList() ?? new List<int>(),
+              Copies=dvd.Copies,
+
+
+          };
+      }
 */
 
 
+        public async Task<string> GenerateNewDvdIdAsync()
+        {
+            string lastDvdId = await _dvdRepository.GetLastDvdIdAsync();
+            return GenerateNewDvdId(lastDvdId);
+        }
 
+        private string GenerateNewDvdId(string lastDvdId)
+        {
+            if (string.IsNullOrEmpty(lastDvdId))
+            {
+                return "dvd001";
+            }
+
+            string numericPart = lastDvdId.Substring(3);
+            int numericId = int.Parse(numericPart) + 1;
+
+            return $"dvd{numericId.ToString("D3")}";
+        }
 
     }
 }

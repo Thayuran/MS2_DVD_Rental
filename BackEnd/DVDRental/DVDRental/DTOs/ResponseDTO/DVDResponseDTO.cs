@@ -9,6 +9,6 @@
         public string Director { get; set; }
         public int Copies { get; set; }
         public string ImagePath { get; set; }
-        /*public decimal RentPrice { get; set; }*/
+        public decimal RentPrice { get; set; }
     }
 }

@@ -41,7 +41,8 @@ IF NOT EXISTS (SELECT * FROM sys.tables WHERE name ='Categories')
                                         Director VARCHAR(50) NOT NULL,
                                         ReleaseDate DATE NOT NULL,
                                         Copies INT NOT NULL,
-                                        ImagePath NVARCHAR(255) ,
+                                        ImagePath NVARCHAR(255),
+                                        rentprice INT,
                                         FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryId),
                                     );
                                 END;
@@ -53,7 +54,6 @@ IF NOT EXISTS (SELECT * FROM sys.tables WHERE name ='Categories')
                                             CustomerName NVARCHAR(50) NOT NULL,
                                             Email NVARCHAR(100) NOT NULL,
                                             Address NVARCHAR(100) NOT NULL,
-                                            AddressId INT NOT NULL,
                                             PhoneNo INT NOT NULL, 
                                             JoinedDate DATETIME2 NOT NULL,
                                             Action BIT NOT NULL

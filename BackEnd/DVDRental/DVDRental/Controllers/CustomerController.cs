@@ -36,7 +36,7 @@ namespace DVDRental.Controllers
         }*/
 
 
-        [HttpGet("GET_ALL_CUSTOMERS")]
+        [HttpGet()]
         public async Task<IActionResult> GetCustomers()
         {
             var customers=await _customerService.GetAllCustomers();

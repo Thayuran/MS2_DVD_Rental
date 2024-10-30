@@ -30,7 +30,12 @@ namespace DVDRental.Controllers
             return Unauthorized("Invalid Credentials");
         }*/
 
-
+        [HttpGet("new-id")]
+        public async Task<IActionResult> GetNewDvdId()
+        {
+            string newDvdId = await _adminDvdService.GenerateNewDvdIdAsync();
+            return Ok(new { newDvdId });
+        }
 
 
 
