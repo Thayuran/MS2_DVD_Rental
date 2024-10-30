@@ -8,7 +8,7 @@
 
 body {
     width: 100%;
-    background-color: #f1f3f5;
+    background-color: #e6f2ff;
     font-family: 'Poppins', sans-serif;
     font-size:20px;
 }
@@ -38,7 +38,7 @@ nav {
     left: 0;
     height: 100vh;
     width: 210px;
-    background-color: #47768f;
+    background-color: #07095a;
     padding: 10px 0 10px 10px;
 }
 
@@ -110,11 +110,11 @@ nav .menu-items li.active a:after {
 
 
 nav .menu-items li.active a .links {
-    color: #1891d1;
+    color: #06075e;
 }
 
 nav .menu-items li.active a ion-icon {
-    color: #1891d1;
+    color: #0c0853;
 }
 
 .dashboard {
@@ -141,7 +141,7 @@ nav .menu-items li.active a ion-icon {
     width: 35px;
     height: 35px;
     padding: 5px;
-    background-color: #1d64c2;
+    background-color: #0c1265;
     color: White;
     border-radius: 6px;
 }
@@ -149,7 +149,7 @@ nav .menu-items li.active a ion-icon {
 .container .title .text {
     font-size: 24px;
     font-weight: 500;
-    color: #002960;
+    color: #0d145e;
     margin-left: 10px;
 }
 
@@ -178,7 +178,7 @@ nav .menu-items li.active a ion-icon {
 .boxes .box .text {
     font-size: 18px;
     font-weight: 500;
-    color: black;
+    color: rgb(14, 13, 95);
 }
 
 .boxes .box .number {
@@ -232,7 +232,7 @@ padding: 0px 20px 40px 40px;
 }
 
 .container .activity tbody tr.odd{
-    background-color: #ceecf6;
+    background-color: #0e3b4a;
 
 }
 
@@ -265,7 +265,7 @@ padding: 0px 20px 40px 40px;
     
 }
 #customAlert button {
-    background-color: #007bff;
+    background-color: #07095a;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -274,7 +274,7 @@ padding: 0px 20px 40px 40px;
    
 }
 #customAlert button:hover {
-    background: #0056b3;
+    background: #07095a;
 }
 
 #customAlert.fade-in {
@@ -297,7 +297,7 @@ button {
     width:150px;
     height: 30px;
     padding: 5px;
-    background-color: #007bff; 
+    background-color: #0c1859; 
     color: white; 
     border: none; 
     border-radius: 10px;
@@ -376,7 +376,7 @@ button {
 }
 .report-btn:hover
  {
-    background-color:#566870
+    background-color:#0b0267
  }
 
  .btn-right
@@ -468,7 +468,7 @@ button {
 {
    font-size: 25px;
    font-weight: bold;
-   color: #1757ac;
+   color: #07095a;
    margin:30px;
 
 }

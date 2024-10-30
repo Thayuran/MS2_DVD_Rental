@@ -149,7 +149,7 @@ async function displayFrequentlyRentedDVDs(rentsUrl,apiUrl) {
 
        
         const dvdDetailsMap = dvds.reduce((map, dvd) => {
-            map[dvd.title] = dvd;
+            map[dvd.movieName] = dvd;
             return map;
         }, {});
         const container = document.getElementById("frequentDvdContainer"); 
@@ -162,9 +162,9 @@ async function displayFrequentlyRentedDVDs(rentsUrl,apiUrl) {
                 card.classList.add("dvd-card");
 
                 card.innerHTML = `
-                 <img src="${dvdDetails.image}" alt="${dvdDetails.title}" class="product-img" />
-                    <h3>${dvdDetails.title}</h3>
-                    <p>Genre: ${dvdDetails.genre}</p>
+                 <img src="${dvdDetails.imagePath}" alt="${dvdDetails.movieName}" class="product-img" />
+                    <h3>${dvdDetails.movieName}</h3>
+                    <p>Genre: ${dvdDetails.categoryID}</p>
                     <p>Available Copies: ${dvdDetails.copies}</p>
                    
                 `;
@@ -373,12 +373,13 @@ function updateDVDTable(dvds) {
     dvdTableBody.innerHTML = '';
   
     dvds.forEach(dvd => {
+        console.log(dvd);
         const row = document.createElement('tr');
   
         const imageCell = document.createElement('td');
         const img = document.createElement('img');
-        img.src = dvd.image;
-        img.alt = dvd.title;
+        img.src = dvd.imagePath;
+        img.alt = dvd.movieName;
         img.style.width = '50px'; 
         img.style.height = 'auto';
         imageCell.appendChild(img);
@@ -390,7 +391,7 @@ function updateDVDTable(dvds) {
         row.appendChild(idCell);
   
         const titleCell = document.createElement('td');
-        titleCell.textContent = dvd.title;
+        titleCell.textContent = dvd.movieName;
         row.appendChild(titleCell);
   
         const directorCell = document.createElement('td');
@@ -402,7 +403,7 @@ function updateDVDTable(dvds) {
         row.appendChild(releaseDateCell);
   
         const genreCell = document.createElement('td');
-        genreCell.textContent = dvd.genre;
+        genreCell.textContent = dvd.categoryID;
         row.appendChild(genreCell);
   
         const copiesCell = document.createElement('td');
@@ -410,7 +411,7 @@ function updateDVDTable(dvds) {
         row.appendChild(copiesCell);
   
         const priceCell = document.createElement('td');
-        priceCell.textContent = dvd.price;
+        priceCell.textContent = dvd.rentPrice;
         row.appendChild(priceCell);
   
         const actionCell = document.createElement('td');
@@ -565,10 +566,10 @@ async function editDVD(dvdId)
   const response = await fetch(`${apiUrl}/${dvdId}`);
   const dvd = await response.json();
 
-  document.getElementById('title').value = dvd.title;
+  document.getElementById('title').value = dvd.movieName;
   document.getElementById('director').value = dvd.director;
   document.getElementById('releaseDate').value = dvd.releaseDate;
-  document.getElementById('genre').value = dvd.genre;
+  document.getElementById('genre').value = dvd.categoryID;
   document.getElementById('copies').value = dvd.copies;
   document.getElementById('image').files[0]=dvd.image;
 
@@ -591,13 +592,13 @@ async function editDVD(dvdId)
       }
 
       const updatedDVD = {
-          title: updatedTitle,
+        movieName: updatedTitle,
           director: updatedDirector,
           releaseDate: updatedReleaseDate,
-          genre: updatedGenre,
+          categoryID: updatedGenre,
           copies: updatedCopies,
           image: updatedImageBase64,
-          price:80
+          rentPrice:80
       };
 
       //update the DVD
@@ -720,18 +721,19 @@ document.querySelectorAll(".navList").forEach(function(element) {
     customerTableBody.innerHTML = '';
   
     customerdetails.forEach(cus => {
+        console.log(cus);
         const row = document.createElement('tr');
 
         const idCell = document.createElement('td');
-        idCell.textContent =cus.id;
+        idCell.textContent =cus.customerId;
         row.appendChild(idCell);
   
         const nameCell = document.createElement('td');
-        nameCell.textContent = cus.name;
+        nameCell.textContent = cus.fullName;
         row.appendChild(nameCell);
   
         const phoneCell = document.createElement('td');
-        phoneCell.textContent =cus.phone;
+        phoneCell.textContent =cus.phoneNumber;
         row.appendChild(phoneCell);
   
         const addressCell = document.createElement('td');
@@ -1151,6 +1153,7 @@ async function fetchRentalHistory() {
         rentalHistoryTableBody.innerHTML = '';
 
         rentalHistory.forEach(record => {
+            console.log(record)
             const row = document.createElement('tr');
 
             const rentIdCell = document.createElement('td');
@@ -1338,7 +1341,7 @@ async function updateRentalRecord(rentalId, updatedData) {
     // const returnbtn=document.getElementById('submit-cfm');
     try {
         await fetch(`${rentsUrl}/${rentalId}`, {
-            method: 'PATCH', // Use PATCH to update specific fields
+            method: 'PATCH', 
             headers: {
                 'Content-Type': 'application/json',
             },

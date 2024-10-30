@@ -64,7 +64,7 @@
               "RelativeDocumentMoniker": "DVDRental\\Controllers\\CustomerController.cs",
               "ToolTip": "E:\\Unicom TIC\\MS2_DVD_Rental\\BackEnd\\DVDRental\\DVDRental\\Controllers\\CustomerController.cs",
               "RelativeToolTip": "DVDRental\\Controllers\\CustomerController.cs",
-              "ViewState": "AQIAABcAAAAAzczMzMwmwCYAAAARAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T03:30:41.811Z",
               "EditorCaption": ""
@@ -103,8 +103,7 @@
               "RelativeToolTip": "DVDRental\\Repositories\\AdminDvdRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T19:05:26.11Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T19:05:26.11Z"
             },
             {
               "$type": "Document",

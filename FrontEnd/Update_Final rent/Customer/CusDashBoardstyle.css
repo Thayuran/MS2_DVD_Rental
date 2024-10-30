@@ -8,13 +8,13 @@
 
 body {
     width: 100%;
-    background-color: #f1f3f5;
+    background-color: #e6f2ff;
     font-family: 'Poppins', sans-serif;
 }
 
 nav .logo {
     display: flex;
-    align-items:left;
+    align-items: left;
 }
 
 nav .logo-image {
@@ -30,14 +30,13 @@ nav .logo-image img {
     margin-top: 10px;
 }
 
-
 nav {
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     width: 210px;
-    background-color: #773350;
+    background-color: rgb(3, 3, 69);
     padding: 10px 0 10px 10px;
 }
 
@@ -46,7 +45,6 @@ nav .menu-items {
     display: flex;
     flex-direction: column;
     height: calc(100vh - 150px);
-    justify-content: space-between;
 }
 
 nav .menu-items li {
@@ -60,8 +58,6 @@ nav .menu-items li a {
     text-decoration: none;
 }
 
-
-
 nav .menu-items li.active a {
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
@@ -69,7 +65,7 @@ nav .menu-items li.active a {
 }
 
 nav .menu-items li a ion-icon {
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 24px;
     min-width: 45px;
 }
@@ -107,13 +103,12 @@ nav .menu-items li.active a:after {
     pointer-events: none;
 }
 
-
 nav .menu-items li.active a .links {
-    color: #1891d1;
+    color: rgb(3, 3, 69);
 }
 
 nav .menu-items li.active a ion-icon {
-    color: #1891d1;
+    color: rgb(3, 3, 69);
 }
 
 .dashboard {
@@ -125,9 +120,9 @@ nav .menu-items li.active a ion-icon {
     padding: 0px 15px;
 }
 
-
 .container {
     padding-left: 10px;
+    text-align: center; /* Center align content in container */
 }
 
 .container .title {
@@ -140,7 +135,7 @@ nav .menu-items li.active a ion-icon {
     width: 35px;
     height: 35px;
     padding: 5px;
-    background-color: #1d64c2;
+    background-color: rgb(3, 3, 69);
     color: White;
     border-radius: 6px;
 }
@@ -148,7 +143,7 @@ nav .menu-items li.active a ion-icon {
 .container .title .text {
     font-size: 24px;
     font-weight: 500;
-    color: #002960;
+    color: rgb(3, 3, 69);
     margin-left: 10px;
 }
 
@@ -162,7 +157,7 @@ nav .menu-items li.active a ion-icon {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: calc(100%/4 - 15px);
+    width: calc(100% / 4 - 15px);
     padding: 15px 20px;
     border-radius: 10px;
     background-color: #9cdef5;
@@ -202,8 +197,8 @@ nav .menu-items li.active a ion-icon {
     background-color: #99BEBC;
 }
 
-.container .table-design{
-padding: 0px 20px 40px 70px;
+.container .table-design {
+    padding: 0px 20px 40px 70px;
 }
 
 .container .activity {
@@ -213,36 +208,33 @@ padding: 0px 20px 40px 70px;
     margin-top: 20px;
 }
 
-.container .activity thead tr th{
+.container .activity thead tr th {
     text-align: left;
     padding-bottom: 20px;
     font-size: 20px;
 }
 
-.container .activity tbody tr td{
+.container .activity tbody tr td {
     color: #333;
     white-space: nowrap;
     padding: 4px;
 }
 
-.container .activity tbody tr td a.delete-btn{
+.container .activity tbody tr td a.delete-btn {
     color: #000;
     text-decoration: none;
 }
 
-.container .activity tbody tr.odd{
+.container .activity tbody tr.odd {
     background-color: #ceecf6;
-
 }
 
-.center{
+.center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
-/* alert */
 #customAlert {
     display: none;
     position: fixed;
@@ -254,19 +246,19 @@ padding: 0px 20px 40px 70px;
     padding: 20px;
     border: 1px solid #f5c6cb;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 2;
-    
 }
+
 #customAlert button {
-    background-color: #007bff;
+    background-color: rgb(3, 3, 69);
     color: #fff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-   
 }
+
 #customAlert button:hover {
     background: #0056b3;
 }
@@ -276,127 +268,106 @@ padding: 0px 20px 40px 70px;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .blur-background {
     filter: blur(5px);
-    pointer-events: none; 
-    user-select: none; 
+    pointer-events: none;
+    user-select: none;
 }
 
-/* Add button */
 button {
-    width:110px;
+    width: 110px;
     padding: 5px;
-    background-color: #007bff; 
-    color: white; 
-    border: none; 
+    background-color: rgb(3, 3, 69);
+    color: white;
+    border: none;
     border-radius: 4px;
-    cursor: pointer; margin: 5px;
-  }
+    cursor: pointer;
+    margin: 5px;
+}
 
-
-
-  /* modal */
-  /* CSS for modal */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  .modal-content {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  .close-btn {
+    width: 80%;
+}
+
+.close-btn {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .close-btn:hover,
-  .close-btn:focus {
+}
+
+.close-btn:hover,
+.close-btn:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
-  
+}
 
-  /* report button */
-
- .report-btn
- {
-    width:150px ;
+.report-btn {
+    width: 150px;
     display: flex;
     gap: 10px;
-   
- }
- .report-btn ion-icon {
-    margin-left: 5px;
-    
 }
-.row{
+
+.report-btn ion-icon {
+    margin-left: 5px;
+}
+
+.row {
     display: flex;
     flex-wrap: wrap;
 }
+
 .column {
     flex: 1;
-    min-width: 200px; 
+    min-width: 200px;
     margin: 10px;
     display: flex;
     justify-content: flex-end;
 }
-.report-btn:hover
- {
-    background-color:#566870
- }
 
- .btn-right
- {
-    width:100px ;
-    display: block; 
+.report-btn:hover {
+    background-color: #566870;
+}
+
+.btn-right {
+    width: 100px;
+    display: block;
     padding: 10px 20px;
     border: none;
     color: white;
     cursor: pointer;
     border-radius: 5px;
-    margin-left: auto; 
-    margin-right: 100px; 
+    margin-left: auto;
+    margin-right: 100px;
     position: relative;
     left: 0;
-
- }
-
-/* new css */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
 }
-
-/* .container {
-    width: 50%;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-} */
 
 h2 {
     text-align: center;
@@ -405,6 +376,7 @@ h2 {
 
 .form-group {
     margin-bottom: 15px;
+    text-align: center;
 }
 
 label {
@@ -412,24 +384,42 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
-    width: 100%;
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    min-width: 500px; 
+    width: auto; 
     padding: 10px;
     margin-top: 5px;
     box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
 }
-/* 
-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border-color: rgb(3, 3, 69);
+}
+
+button.submit-btn {
+    width: 100%; 
+    padding: 20px;
+    margin: 5px;
+    background-color: rgb(3, 3, 69);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-} */
-/* 
-button:hover {
-    background-color: #45a049;
-} */
+    font-size: 16px;
+}
+
+button.submit-btn:hover {
+    background-color: #0056b3;
+}
+
